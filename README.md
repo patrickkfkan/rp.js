@@ -42,7 +42,7 @@ For a full list of methods and options, see the [API Documentation](./docs/api/)
 To enable playback, you must provide a player implementation to `rp.js` by extending the [Player](./docs/api/classes/Player.md) abstract class:
 
 ```typescript
-import { Player, RadioParadise } from 'rp.js';
+import { Player, RadioParadise } from '@patrickkfkan/rp.js';
 
 class MyPlayer extends Player {
 
@@ -276,7 +276,7 @@ await rp.play('0');
 To enable logging, provide a [Logger](./docs/api/interfaces/Logger.md) implementation:
 
 ```typescript
-import { type Logger } from 'rp.js';
+import { type Logger } from '@patrickkfkan/rp.js';
 
 const logger: Logger = {
   info: (msg) => console.info(msg),
