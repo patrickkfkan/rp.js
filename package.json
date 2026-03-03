@@ -1,0 +1,55 @@
+{
+  "name": "rp.js",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rimraf ./dist && npx tsc -p tsconfig.json",
+    "lint": "npx eslint ./src && npx eslint ./example",
+    "lint:fix": "npx eslint ./src --fix && npx eslint ./example --fix",
+    "format": "prettier --write \"{src,example}/**/*.{js,ts,jsx,tsx}\"",
+    "format:check": "prettier --check \"{src,example}/**/*.{js,ts,jsx,tsx}\"",
+    "doc": "npx typedoc",
+    "example": "npx tsx ./example/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patrickkfkan/rp.js"
+  },
+  "author": "Patrick Kan",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "description": "Library for managing playback of Radio Paradise channels.",
+  "devDependencies": {
+    "@types/blessed": "^0.1.27",
+    "@types/lodash": "^4.17.23",
+    "@types/node": "^20.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "blessed": "^0.1.81",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "prettier": "^3.8.1",
+    "rimraf": "^6.1.2",
+    "tsx": "^4.21.0",
+    "typedoc": "^0.28.5",
+    "typedoc-plugin-markdown": "^4.7.0",
+    "typedoc-plugin-rename-defaults": "^0.7.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0",
+    "volumio-ext-players": "^1.1.0"
+  },
+  "dependencies": {
+    "http-cookie-agent": "^7.0.3",
+    "lodash": "^4.17.23",
+    "pauseable": "^0.3.2",
+    "tough-cookie": "^6.0.0",
+    "undici": "^7.22.0",
+    "zod": "^4.3.6"
+  },
+  "keywords": [
+    "radio paradise"
+  ]
+}

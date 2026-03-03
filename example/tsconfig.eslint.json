@@ -1,0 +1,18 @@
+{
+  "include": ["./**/*.ts"],
+  "compilerOptions": {
+    "target": "es2022",
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "strict": true,
+    "strictPropertyInitialization": true,
+    "typeRoots": [
+      "src/typings",
+      "node_modules/@types"
+    ]
+  }
+}
