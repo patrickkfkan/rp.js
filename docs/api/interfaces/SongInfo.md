@@ -1,12 +1,12 @@
-[**rp.js**](../README.md)
+[**@patrickkfkan/rp.js**](../README.md)
 
 ***
 
-[rp.js](../README.md) / SongInfo
+[@patrickkfkan/rp.js](../README.md) / SongInfo
 
 # Interface: SongInfo
 
-Defined in: src/types/rp.ts:9
+Defined in: [src/types/rp.ts:9](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L9)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: src/types/rp.ts:9
 
 > **album**: \{ `id`: `string` \| `null`; `name`: `string`; `release_year`: `string` \| `null`; `url`: `string` \| `null`; \} \| `null`
 
-Defined in: src/types/rp.ts:20
+Defined in: [src/types/rp.ts:20](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L20)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: src/types/rp.ts:20
 
 > **artist**: \{ `id`: `string` \| `null`; `image`: `string` \| `null`; `name`: `string`; `url`: `string` \| `null`; \} \| `null`
 
-Defined in: src/types/rp.ts:14
+Defined in: [src/types/rp.ts:14](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L14)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: src/types/rp.ts:14
 
 > **cover**: `string` \| `null`
 
-Defined in: src/types/rp.ts:12
+Defined in: [src/types/rp.ts:12](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L12)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: src/types/rp.ts:12
 
 > **length**: `string` \| `null`
 
-Defined in: src/types/rp.ts:28
+Defined in: [src/types/rp.ts:28](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L28)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: src/types/rp.ts:28
 
 > **lyrics**: `string` \| `null`
 
-Defined in: src/types/rp.ts:32
+Defined in: [src/types/rp.ts:32](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L32)
 
 Lyrics (may contain HTML tags)
 
@@ -56,7 +56,7 @@ Lyrics (may contain HTML tags)
 
 > **rating**: `string` \| `null`
 
-Defined in: src/types/rp.ts:27
+Defined in: [src/types/rp.ts:27](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L27)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: src/types/rp.ts:27
 
 > **release\_date**: `string` \| `null`
 
-Defined in: src/types/rp.ts:26
+Defined in: [src/types/rp.ts:26](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L26)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: src/types/rp.ts:26
 
 > **song\_id**: `string`
 
-Defined in: src/types/rp.ts:11
+Defined in: [src/types/rp.ts:11](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L11)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: src/types/rp.ts:11
 
 > **timed\_lyrics**: `object`[] \| `null`
 
-Defined in: src/types/rp.ts:37
+Defined in: [src/types/rp.ts:37](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L37)
 
 Timed lyrics. If available, each entry represents a
 line of lyrics synchronized to a specific playback time.
@@ -91,7 +91,7 @@ line of lyrics synchronized to a specific playback time.
 
 > **title**: `string` \| `null`
 
-Defined in: src/types/rp.ts:13
+Defined in: [src/types/rp.ts:13](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L13)
 
 ***
 
@@ -99,7 +99,7 @@ Defined in: src/types/rp.ts:13
 
 > **url**: `string` \| `null`
 
-Defined in: src/types/rp.ts:45
+Defined in: [src/types/rp.ts:45](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L45)
 
 ***
 
@@ -107,4 +107,4 @@ Defined in: src/types/rp.ts:45
 
 > **wiki\_html**: `string` \| `null`
 
-Defined in: src/types/rp.ts:10
+Defined in: [src/types/rp.ts:10](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L10)

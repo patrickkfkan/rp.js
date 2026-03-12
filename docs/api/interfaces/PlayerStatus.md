@@ -1,12 +1,12 @@
-[**rp.js**](../README.md)
+[**@patrickkfkan/rp.js**](../README.md)
 
 ***
 
-[rp.js](../README.md) / PlayerStatus
+[@patrickkfkan/rp.js](../README.md) / PlayerStatus
 
 # Interface: PlayerStatus
 
-Defined in: src/core/Player.ts:22
+Defined in: [src/core/Player.ts:23](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L23)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: src/core/Player.ts:22
 
 > **channel**: \{ `id`: `string`; `isEpisodeRadio`: `boolean`; `streamName`: `string`; `title`: `string`; \} \| `null`
 
-Defined in: src/core/Player.ts:24
+Defined in: [src/core/Player.ts:25](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L25)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: src/core/Player.ts:24
 
 > **state**: `"idle"` \| `"playing"` \| `"paused"` \| `"loading"`
 
-Defined in: src/core/Player.ts:23
+Defined in: [src/core/Player.ts:24](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L24)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: src/core/Player.ts:23
 
 > **track**: [`PlayerTrackInfo`](../type-aliases/PlayerTrackInfo.md) \| `null`
 
-Defined in: src/core/Player.ts:30
+Defined in: [src/core/Player.ts:31](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L31)

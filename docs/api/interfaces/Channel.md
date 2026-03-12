@@ -1,12 +1,12 @@
-[**rp.js**](../README.md)
+[**@patrickkfkan/rp.js**](../README.md)
 
 ***
 
-[rp.js](../README.md) / Channel
+[@patrickkfkan/rp.js](../README.md) / Channel
 
 # Interface: Channel
 
-Defined in: src/types/media.ts:1
+Defined in: [src/types/media.ts:1](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L1)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: src/types/media.ts:1
 
 > **id**: `string`
 
-Defined in: src/types/media.ts:2
+Defined in: [src/types/media.ts:2](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L2)
 
 ***
 
@@ -22,23 +22,31 @@ Defined in: src/types/media.ts:2
 
 > **images**: `object`
 
-Defined in: src/types/media.ts:7
+Defined in: [src/types/media.ts:8](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L8)
 
 #### banner
 
-> **banner**: `string`
+> **banner**: `string` \| `null`
 
 #### banner\_mini
 
-> **banner\_mini**: `string`
+> **banner\_mini**: `string` \| `null`
 
 #### carousel
 
-> **carousel**: `string`
+> **carousel**: `string` \| `null`
 
 #### default
 
-> **default**: `string`
+> **default**: `string` \| `null`
+
+***
+
+### is\_episodic\_radio
+
+> **is\_episodic\_radio**: `boolean`
+
+Defined in: [src/types/media.ts:7](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L7)
 
 ***
 
@@ -46,7 +54,7 @@ Defined in: src/types/media.ts:7
 
 > **slug**: `string`
 
-Defined in: src/types/media.ts:5
+Defined in: [src/types/media.ts:5](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L5)
 
 ***
 
@@ -54,7 +62,7 @@ Defined in: src/types/media.ts:5
 
 > **stream\_name**: `string`
 
-Defined in: src/types/media.ts:4
+Defined in: [src/types/media.ts:4](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L4)
 
 ***
 
@@ -62,7 +70,7 @@ Defined in: src/types/media.ts:4
 
 > **title**: `string`
 
-Defined in: src/types/media.ts:3
+Defined in: [src/types/media.ts:3](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L3)
 
 ***
 
@@ -70,4 +78,4 @@ Defined in: src/types/media.ts:3
 
 > **type**: `string`
 
-Defined in: src/types/media.ts:6
+Defined in: [src/types/media.ts:6](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L6)

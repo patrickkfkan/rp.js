@@ -1,8 +1,8 @@
-**rp.js**
+**@patrickkfkan/rp.js**
 
 ***
 
-# rp.js
+# @patrickkfkan/rp.js
 
 ## Enumerations
 
@@ -18,8 +18,12 @@
 - [AlbumInfo](interfaces/AlbumInfo.md)
 - [ArtistInfo](interfaces/ArtistInfo.md)
 - [Channel](interfaces/Channel.md)
+- [Episode](interfaces/Episode.md)
+- [EpisodeList](interfaces/EpisodeList.md)
 - [GetAlbumInfoParams](interfaces/GetAlbumInfoParams.md)
 - [GetArtistInfoParams](interfaces/GetArtistInfoParams.md)
+- [GetEpisodeListParams](interfaces/GetEpisodeListParams.md)
+- [GetEpisodeParams](interfaces/GetEpisodeParams.md)
 - [GetNowPlayingListParams](interfaces/GetNowPlayingListParams.md)
 - [GetSongInfoParams](interfaces/GetSongInfoParams.md)
 - [Logger](interfaces/Logger.md)

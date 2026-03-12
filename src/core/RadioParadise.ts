@@ -87,6 +87,9 @@ export interface GetEpisodeListParams {
 }
 
 export interface GetEpisodeParams {
+  /**
+   * The ID of the episode to retrieve.
+   */
   episode_id?: string;
 }
 
@@ -155,13 +158,12 @@ export class RadioParadise extends EventEmitter {
 
   /**
    * Plays content from the specified channel or episode.
+   * 
+   * - If `episode` is provided, plays that specific episode from the channel.
+   * - If `episode` is omitted, plays the live stream or default content of the channel.
    *
    * @param {string|Object} channel - The channel ID (string) or channel object.
    * @param {string|Object} [episode] - Optional. The episode ID (string) or episode object.
-   *
-   * @description
-   * - If `episode` is provided, plays that specific episode from the channel.
-   * - If `episode` is omitted, plays the live stream or default content of the channel.
    *
    * @throws {Error} If an episode is provided but the channel does not support episodic content
    * (i.e., `channel.is_episodic_radio` is false).
@@ -340,11 +342,24 @@ export class RadioParadise extends EventEmitter {
     return this.#api.getAlbumInfo({ album_id });
   }
 
+  /**
+   * Retrieves the list of available episodes.
+   *
+   * @param params Request parameters. See {@link GetEpisodeListParams}.
+   * @returns The {@link EpisodeList}.
+   */
   getEpisodeList(params: GetEpisodeListParams) {
     const { start = 0, limit = 10, sort = 'DESC' } = params || {};
     return this.#api.getEpisodeList({ start, limit, sort });
   }
 
+  /**
+   * Retrieves episode data specified by `params.episode_id`,
+   * or the current episode if omitted.
+   * 
+   * @param params Request parameters. See {@link GetEpisodeParams}.
+   * @returns The {@link Episode}, or `null`.
+   */
   async getEpisode(params?: GetEpisodeParams) {
     let episode_id = params?.episode_id;
     if (!episode_id) {

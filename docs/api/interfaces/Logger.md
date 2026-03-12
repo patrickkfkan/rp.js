@@ -1,12 +1,12 @@
-[**rp.js**](../README.md)
+[**@patrickkfkan/rp.js**](../README.md)
 
 ***
 
-[rp.js](../README.md) / Logger
+[@patrickkfkan/rp.js](../README.md) / Logger
 
 # Interface: Logger
 
-Defined in: src/utils/logging.ts:1
+Defined in: [src/utils/logging.ts:1](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L1)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: src/utils/logging.ts:1
 
 > **debug**: (`msg`) => `void`
 
-Defined in: src/utils/logging.ts:4
+Defined in: [src/utils/logging.ts:4](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L4)
 
 #### Parameters
 
@@ -32,7 +32,7 @@ Defined in: src/utils/logging.ts:4
 
 > **error**: (`msg`) => `void`
 
-Defined in: src/utils/logging.ts:5
+Defined in: [src/utils/logging.ts:5](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L5)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: src/utils/logging.ts:5
 
 > **info**: (`msg`) => `void`
 
-Defined in: src/utils/logging.ts:2
+Defined in: [src/utils/logging.ts:2](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L2)
 
 #### Parameters
 
@@ -68,7 +68,7 @@ Defined in: src/utils/logging.ts:2
 
 > **warn**: (`msg`) => `void`
 
-Defined in: src/utils/logging.ts:3
+Defined in: [src/utils/logging.ts:3](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L3)
 
 #### Parameters
 

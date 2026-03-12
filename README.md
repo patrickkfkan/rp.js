@@ -137,8 +137,8 @@ await rp.play('0');
   - If `episode` is provided, plays that specific episode from the channel.
   - If `episode` is omitted, plays the live stream or default content of the channel.
 
-  >[!NOTE]
-  >Episodes can only be played on channels that support episodic content. Doing otherwise will result in an error. Inspect the channel's `is_episodic_radio` property to check support.
+  > [!NOTE]
+  > Episodes can only be played on channels that support episodic content. Doing otherwise will result in an error. Inspect the channel's `is_episodic_radio` property to check support.
   
   #### Parameters
   - **channel**: The channel ID (`string`) or [Channel](./docs/api/interfaces/Channel.md) object.
@@ -411,6 +411,58 @@ console.log(`Status: ${status.state}${status.track ? `: ${status.track.title}` :
   }
   ```
 </details>
+
+### Episodes
+
+<details>
+  <summary><code>getEpisodeList(params)</code></summary>
+
+  #### Description
+  Retrieves the list of available episodes.
+
+  #### Parameters
+  - **params**: (*optional*) Request parameters
+    - **start**: (*optional*) Offset of the first item in the list to return (`number`). Default: 0.
+    - **limit**: (*optional*) The number of items to return (`number`). Default: 10.
+    - **sort**: (*optional*) The sort order of the items (`ASC` | `DESC`). Default: `DESC` (descending order).
+
+  #### Returns
+  `Promise<EpisodeList>`: A promise that resolves to an [EpisodeList](./docs/api/interfaces/EpisodeList.md) object.
+
+  #### Example
+  ```typescript
+  const list = await rp.getEpisodeList();
+  for (const episode of list.episodes) {
+    console.log(episode.title);
+  }
+  ```
+</details>
+
+<details>
+  <summary><code>getEpisode(params)</code></summary>
+
+  #### Description
+  Retrieves episode data specified by `params.episode_id`, or the current episode if omitted.
+
+  #### Parameters
+  - **params**: (*optional*) Request parameters
+    - **episode_id**: (*optional*) The ID of the episode to retrieve (`string`).
+
+  #### Returns
+  `Promise<Episode | null>`: A promise that resolves to an [Episode](./docs/api/interfaces/Episode.md) object, or `null` if no information is available.
+
+  #### Example
+  ```typescript
+  const episode = await rp.getEpisode({ episode_id: 137 });
+  if (episode) {
+    console.log('');
+    console.log('Episode');
+    console.log('-------');
+    console.log(JSON.stringify(episode, null, 2));
+  }
+  ```
+</details>
+
 
 ## Running the example
 

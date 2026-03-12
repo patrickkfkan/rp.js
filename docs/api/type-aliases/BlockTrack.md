@@ -1,14 +1,14 @@
-[**rp.js**](../README.md)
+[**@patrickkfkan/rp.js**](../README.md)
 
 ***
 
-[rp.js](../README.md) / BlockTrack
+[@patrickkfkan/rp.js](../README.md) / BlockTrack
 
 # Type Alias: BlockTrack
 
 > **BlockTrack** = [`Track`](../interfaces/Track.md) & `object`
 
-Defined in: src/types/media.ts:35
+Defined in: [src/types/media.ts:36](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L36)
 
 ## Type Declaration
 

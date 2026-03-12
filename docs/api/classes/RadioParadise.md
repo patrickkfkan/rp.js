@@ -1,12 +1,12 @@
-[**rp.js**](../README.md)
+[**@patrickkfkan/rp.js**](../README.md)
 
 ***
 
-[rp.js](../README.md) / RadioParadise
+[@patrickkfkan/rp.js](../README.md) / RadioParadise
 
 # Class: RadioParadise
 
-Defined in: src/core/RadioParadise.ts:71
+Defined in: [src/core/RadioParadise.ts:99](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L99)
 
 Main class of the library.
 
@@ -20,7 +20,7 @@ Main class of the library.
 
 > **new RadioParadise**(`options?`): `RadioParadise`
 
-Defined in: src/core/RadioParadise.ts:78
+Defined in: [src/core/RadioParadise.ts:106](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L106)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: src/core/RadioParadise.ts:78
 
 > **dispose**(): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:303
+Defined in: [src/core/RadioParadise.ts:391](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L391)
 
 Disposes of the instance.
 
@@ -58,7 +58,7 @@ After disposal, calling playback-related methods will throw an error.
 
 > **emit**(`eentName`, `status`): `boolean`
 
-Defined in: src/core/RadioParadise.ts:329
+Defined in: [src/core/RadioParadise.ts:417](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L417)
 
 Synchronously calls each of the listeners registered for the event named `eventName`, in the order they were registered, passing the supplied arguments
 to each.
@@ -126,7 +126,7 @@ v0.1.26
 
 > **getAlbumInfo**(`params?`): `Promise`\<[`AlbumInfo`](../interfaces/AlbumInfo.md) \| `null`\>
 
-Defined in: src/core/RadioParadise.ts:269
+Defined in: [src/core/RadioParadise.ts:324](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L324)
 
 Retrieves information about the album specified by `params.album_id`,
 or the current track's album if omitted.
@@ -153,7 +153,7 @@ The [AlbumInfo](../interfaces/AlbumInfo.md), or `null`.
 
 > **getArtistInfo**(`params?`): `Promise`\<[`ArtistInfo`](../interfaces/ArtistInfo.md) \| `null`\>
 
-Defined in: src/core/RadioParadise.ts:239
+Defined in: [src/core/RadioParadise.ts:294](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L294)
 
 Retrieves information about the artist specified by `params.artist_id`,
 or the current track's artist if omitted.
@@ -180,7 +180,7 @@ The [ArtistInfo](../interfaces/ArtistInfo.md), or `null`.
 
 > **getChannels**(): `Promise`\<[`Channel`](../interfaces/Channel.md)[]\>
 
-Defined in: src/core/RadioParadise.ts:117
+Defined in: [src/core/RadioParadise.ts:145](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L145)
 
 Retrieves the list of available channels.
 
@@ -192,11 +192,60 @@ A list of [Channel](../interfaces/Channel.md) objects.
 
 ***
 
+### getEpisode()
+
+> **getEpisode**(`params?`): `Promise`\<[`Episode`](../interfaces/Episode.md) \| `null`\>
+
+Defined in: [src/core/RadioParadise.ts:363](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L363)
+
+Retrieves episode data specified by `params.episode_id`,
+or the current episode if omitted.
+
+#### Parameters
+
+##### params?
+
+[`GetEpisodeParams`](../interfaces/GetEpisodeParams.md)
+
+Request parameters. See [GetEpisodeParams](../interfaces/GetEpisodeParams.md).
+
+#### Returns
+
+`Promise`\<[`Episode`](../interfaces/Episode.md) \| `null`\>
+
+The [Episode](../interfaces/Episode.md), or `null`.
+
+***
+
+### getEpisodeList()
+
+> **getEpisodeList**(`params`): `Promise`\<[`EpisodeList`](../interfaces/EpisodeList.md)\>
+
+Defined in: [src/core/RadioParadise.ts:351](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L351)
+
+Retrieves the list of available episodes.
+
+#### Parameters
+
+##### params
+
+[`GetEpisodeListParams`](../interfaces/GetEpisodeListParams.md)
+
+Request parameters. See [GetEpisodeListParams](../interfaces/GetEpisodeListParams.md).
+
+#### Returns
+
+`Promise`\<[`EpisodeList`](../interfaces/EpisodeList.md)\>
+
+The [EpisodeList](../interfaces/EpisodeList.md).
+
+***
+
 ### getNowPlayingList()
 
 > **getNowPlayingList**(`params?`): `Promise`\<[`NowPlayingList`](../interfaces/NowPlayingList.md) \| `null`\>
 
-Defined in: src/core/RadioParadise.ts:192
+Defined in: [src/core/RadioParadise.ts:247](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L247)
 
 Retrieves the current track and playback history.
 
@@ -223,7 +272,7 @@ The [NowPlayingList](../interfaces/NowPlayingList.md), or `null` if no list is a
 
 > **getSessionData**(): `string`
 
-Defined in: src/core/RadioParadise.ts:294
+Defined in: [src/core/RadioParadise.ts:382](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L382)
 
 Returns the current session data.
 
@@ -239,7 +288,7 @@ A serialized string representing the session state.
 
 > **getSongInfo**(`params?`): `Promise`\<[`SongInfo`](../interfaces/SongInfo.md) \| `null`\>
 
-Defined in: src/core/RadioParadise.ts:205
+Defined in: [src/core/RadioParadise.ts:260](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L260)
 
 Retrieves information about the song specified by `params.song_id`,
 or the current track if omitted.
@@ -266,7 +315,7 @@ The [SongInfo](../interfaces/SongInfo.md), or `null`.
 
 > **getStatus**(): [`PlayerStatus`](../interfaces/PlayerStatus.md)
 
-Defined in: src/core/RadioParadise.ts:179
+Defined in: [src/core/RadioParadise.ts:234](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L234)
 
 Returns the current playback status.
 
@@ -282,7 +331,7 @@ The current [PlayerStatus](../interfaces/PlayerStatus.md).
 
 > **off**(`eventName`, `listener`): `this`
 
-Defined in: src/core/RadioParadise.ts:324
+Defined in: [src/core/RadioParadise.ts:412](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L412)
 
 Alias for `emitter.removeListener()`.
 
@@ -314,7 +363,7 @@ v10.0.0
 
 > **on**(`eventName`, `listener`): `this`
 
-Defined in: src/core/RadioParadise.ts:314
+Defined in: [src/core/RadioParadise.ts:402](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L402)
 
 Adds the `listener` function to the end of the listeners array for the event
 named `eventName`. No checks are made to see if the `listener` has already
@@ -375,7 +424,7 @@ v0.1.101
 
 > **once**(`eventName`, `listener`): `this`
 
-Defined in: src/core/RadioParadise.ts:319
+Defined in: [src/core/RadioParadise.ts:407](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L407)
 
 Adds a **one-time** `listener` function for the event named `eventName`. The
 next time `eventName` is triggered, this listener is removed and then invoked.
@@ -434,7 +483,7 @@ v0.3.0
 
 > **pause**(): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:142
+Defined in: [src/core/RadioParadise.ts:197](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L197)
 
 Pauses current playback.
 
@@ -446,23 +495,37 @@ Pauses current playback.
 
 ### play()
 
-> **play**(`channel`): `Promise`\<`void`\>
+> **play**(`channel`, `episode?`): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:135
+Defined in: [src/core/RadioParadise.ts:171](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L171)
 
-Plays the specified channel.
+Plays content from the specified channel or episode.
+
+- If `episode` is provided, plays that specific episode from the channel.
+- If `episode` is omitted, plays the live stream or default content of the channel.
 
 #### Parameters
 
 ##### channel
 
-The ID of the channel or a [Channel](../interfaces/Channel.md) object.
+The channel ID (string) or channel object.
 
 `string` | [`Channel`](../interfaces/Channel.md)
+
+##### episode?
+
+Optional. The episode ID (string) or episode object.
+
+`string` | [`Episode`](../interfaces/Episode.md)
 
 #### Returns
 
 `Promise`\<`void`\>
+
+#### Throws
+
+If an episode is provided but the channel does not support episodic content
+(i.e., `channel.is_episodic_radio` is false).
 
 ***
 
@@ -470,7 +533,7 @@ The ID of the channel or a [Channel](../interfaces/Channel.md) object.
 
 > **resume**(): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:149
+Defined in: [src/core/RadioParadise.ts:204](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L204)
 
 Resumes paused playback.
 
@@ -484,7 +547,7 @@ Resumes paused playback.
 
 > **seek**(`positionInTrack`): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:157
+Defined in: [src/core/RadioParadise.ts:212](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L212)
 
 Seeks to the specified position in the track.
 
@@ -506,7 +569,7 @@ The playback position to seek to, in milliseconds.
 
 > **setQuality**(`quality`): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:105
+Defined in: [src/core/RadioParadise.ts:133](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L133)
 
 Sets the audio quality.
 
@@ -528,7 +591,7 @@ A [AudioQuality](../enumerations/AudioQuality.md) value.
 
 > **skip**(): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:164
+Defined in: [src/core/RadioParadise.ts:219](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L219)
 
 Skips to the next track.
 
@@ -542,7 +605,7 @@ Skips to the next track.
 
 > **stop**(): `Promise`\<`void`\>
 
-Defined in: src/core/RadioParadise.ts:171
+Defined in: [src/core/RadioParadise.ts:226](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L226)
 
 Stops current playback.
 
