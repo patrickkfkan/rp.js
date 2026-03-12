@@ -6,10 +6,10 @@ export interface Channel {
   type: string;
   is_episodic_radio: boolean;
   images: {
-    default: string;
-    banner: string;
-    banner_mini: string;
-    carousel: string;
+    default: string | null;
+    banner: string | null;
+    banner_mini: string | null;
+    carousel: string | null;
   };
 }
 

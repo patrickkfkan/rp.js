@@ -9,10 +9,10 @@ const ListChannelsResponseSchema = z.array(
     stream_name: z.string(),
     slug: z.string(),
     type: z.string(), // 'block' | 'playlist'
-    banner_url: z.url(),
-    banner_mini_url: z.url(),
-    carousel_url: z.url(),
-    image: z.url(),
+    banner_url: z.url().nullish().catch(null),
+    banner_mini_url: z.url().nullish().catch(null),
+    carousel_url: z.url().nullish().catch(null),
+    image: z.url().nullish().catch(null),
     modes: z.object({
       type: z.string()
     })
@@ -25,10 +25,10 @@ export function parseListChannelsResponse(data: any) {
       id: data.chan,
       ..._.pick(data, ['title', 'stream_name', 'slug', 'type']),
       images: {
-        default: data.image,
-        banner: data.banner_url,
-        banner_mini: data.banner_mini_url,
-        carousel: data.carousel_url
+        default: data.image ?? null,
+        banner: data.banner_url ?? null,
+        banner_mini: data.banner_mini_url ?? null,
+        carousel: data.carousel_url ?? null
       },
       is_episodic_radio: data.modes.type === 'episodic_radio'
     }))

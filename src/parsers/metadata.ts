@@ -6,9 +6,9 @@ const SITE_URL = 'https://radioparadise.com';
 const SongInfoResponseSchema = z
   .object({
     wiki_html: z.string().nullish(),
-    artist_image: z.url(),
+    artist_image: z.url().nullish().catch(null),
     song_id: z.coerce.string(),
-    cover: z.url().nullish(),
+    cover: z.url().nullish().catch(null),
     title: z.string().nullish(),
     artist_id: z.string().nullish(),
     artist: z.string().nullish(),
@@ -87,8 +87,8 @@ const ArtistInfoResponseSchema = z
       artist_id: z.string(),
       name: z.string().nullish(),
       bio: z.string().nullish(),
-      artist_image: z.url().nullish(),
-      artist_images: z.array(z.url()).nullish()
+      artist_image: z.url().nullish().catch(null),
+      artist_images: z.array(z.url().nullish().catch(null)).nullish()
     })
   })
   .transform(({ artist: data }) => ({
@@ -104,7 +104,7 @@ const ArtistInfoResponseSchema = z
       data.artist_image && data.artist_images && data.artist_images.length > 0 ?
         {
           default: data.artist_image,
-          all: data.artist_images
+          all: data.artist_images.filter((url) => url != null)
         }
       : null
   }));
@@ -157,7 +157,7 @@ const AlbumInfoResponseSchema = z
       release_date: z.string().nullish(),
       year: z.string().nullish(),
       label: z.string().nullish(),
-      cover: z.url().nullish()
+      cover: z.url().nullish().catch(null)
     }),
     songs: z.array(SongInAlbumInfoResponseSchema)
   })

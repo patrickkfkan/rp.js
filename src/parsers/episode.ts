@@ -44,7 +44,7 @@ const EpisodeSchema = z
     })).nullish(),
     links: z.array(z.object({
       link_text: z.string(),
-      link_url: z.url().nullable().catch(null)
+      link_url: z.url().nullish().catch(null)
     })).nullish(),
     episode_image: z.object({
       image: z.object({
