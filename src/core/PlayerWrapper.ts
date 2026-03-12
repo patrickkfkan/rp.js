@@ -703,16 +703,21 @@ export class PlayerWrapper extends EventEmitter {
   }
 
   #validateBlock(block: Block) {
+    if (block.tracks.length === 0) {
+      return {
+        validated: false as const,
+        reason: 'No tracks in block'
+      };
+    }
     if (
-      Object.entries(block.tracks).length === 0 ||
       // If duration is also null or 0, then it's an infinite stream and should not fail validation.
-      Object.values(block.tracks).some(
-        (track) => track.elapsed === undefined && track.duration
+      block.tracks.some(
+        (track) => track.duration && (track.elapsed === undefined || track.elapsed < 0)
       )
     ) {
       return {
         validated: false as const,
-        reason: 'One or more tracks are missing the elapsed value'
+        reason: 'One or more tracks do not have a valid elapsed time value'
       };
     }
     return {
