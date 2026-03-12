@@ -2,6 +2,8 @@ export function millisToMinutesAndSeconds(
   millis: number,
   notation: 'colon' | 'alphanumeric' = 'colon'
 ) {
+  const sign = millis < 0 ? '-' : '';
+  millis = Math.abs(millis);
   let minutes = Math.floor(millis / 60000);
   let seconds = Math.floor((millis % 60000) / 1000);
   if (seconds === 60) {
@@ -16,11 +18,11 @@ export function millisToMinutesAndSeconds(
     if (seconds > 0 || minutes === 0) {
       s.push(`${seconds}s`);
     }
-    return s.join(' ');
+    return sign + s.join(' ');
   }
   const formattedSeconds =
     seconds < 10 ? '0' + String(seconds) : String(seconds);
-  return `${minutes}:${formattedSeconds}`;
+  return `${sign}${minutes}:${formattedSeconds}`;
 }
 
 export function millisToLocaleDateTimeString(millis: number) {
