@@ -62,7 +62,22 @@ export type BlockTrack = Track & {
 export interface Block {
   event: string;
   slice_num: string;
+  /**
+   * Block type.
+   * 
+   * Known types and inferred meaning:
+   * - 'M': Music
+   * - 'T': Talk
+   */
   type: string;
+  /**
+   * Data/time of expiry in milliseconds
+   */
+  expiration: number;
+  /**
+   * Duration of the block in milliseconds
+   */
+  duration: number;
   url: string;
   channel: {
     id: string;

@@ -342,7 +342,7 @@ export class RadioParadise extends EventEmitter {
     return this.#api.getEpisodeList({ start, limit, sort });
   }
 
-  getEpisode(params?: GetEpisodeParams) {
+  async getEpisode(params?: GetEpisodeParams) {
     let episode_id = params?.episode_id;
     if (!episode_id) {
       const { channel, track } = this.getStatus() ?? {};
@@ -352,7 +352,7 @@ export class RadioParadise extends EventEmitter {
       }
       episode_id = track.episode_id;
     }
-    return this.#api.getEpisode({ episode_id });
+    return await this.#api.getEpisode({ episode_id });
   }
 
   /**

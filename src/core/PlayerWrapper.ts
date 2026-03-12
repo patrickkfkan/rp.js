@@ -223,7 +223,7 @@ export class PlayerWrapper extends EventEmitter {
         streamName: block.channel.stream_name,
         isEpisodeRadio: block.channel.isER
       },
-      track: this.#toPlayerTrackInfo(currentTrack)
+      track: this.#toPlayerTrackInfo(currentTrack, block)
     });
   }
 
@@ -306,7 +306,7 @@ export class PlayerWrapper extends EventEmitter {
       );
       return;
     }
-    this.#setStatus({ track: this.#toPlayerTrackInfo(currentTrack) });
+    this.#setStatus({ track: this.#toPlayerTrackInfo(currentTrack, this.#currentBlock) });
     if (currentTrack.duration) {
       const isLastTrackInBlock =
         this.#currentTrackIndex === this.#currentBlock.tracks.length - 1;
@@ -563,8 +563,8 @@ export class PlayerWrapper extends EventEmitter {
       this.#logger.warn(`Cannot seek while player is ${this.#status.state}`);
       return;
     }
-    const currentTrack = this.#getCurrentTrack();
-    if (!currentTrack) {
+    let currentTrack = this.#getCurrentTrack();
+    if (!currentTrack || !this.#currentBlock) {
       throw Error('Missing current track');
     }
     if (!currentTrack.duration) {
@@ -575,12 +575,38 @@ export class PlayerWrapper extends EventEmitter {
     this.#clearNextTrackTimer();
     this.#playerOpAbortController = new AbortController();
     const signal = this.#playerOpAbortController.signal;
-    const positionInStream = positionInTrack + (currentTrack.elapsed ?? 0);
+    const isEpisode = this.#currentBlock.type === 'T';
+    // Because we externally represent an episode as a single track, `positionInTrack` would
+    // accordingly be the actual position in the stream to seek to.
+    const positionInStream = positionInTrack + (isEpisode ? 0 : (currentTrack.elapsed ?? 0));
     try {
       const [_, { position: newPositionInStream }] = await Promise.all([
         this.#player.seek(positionInStream),
         this.#waitForPlayerEvent('seeked', signal)
       ]);
+      if (isEpisode) {
+        // For episodes, because the seek position can be anywhere in the stream,
+        // currentTrack could have changed after seek and we would need to update that.
+        // Note that we use `positionInStream` which is the target seek position to determine
+        // the updated track index.
+        const newTrackIndex = this.#currentBlock.tracks.findIndex((track) => 
+          track.elapsed &&
+          positionInStream >= track.elapsed &&
+          track.duration &&
+          positionInStream < track.elapsed + track.duration
+        );
+        if (newTrackIndex < 0) {
+          this.#logger.warn('Could not determine current track after seeking in episode. The data used is:');
+          this.#currentBlock.tracks.forEach((track) => {
+            this.#logger.debug(`positionInStream: ${positionInStream}, track.elapsed: ${track.elapsed}, track.duration: ${track.duration}}`);
+          })
+        }
+        else {
+          this.#currentTrackIndex = newTrackIndex;
+          currentTrack = this.#currentBlock.tracks.at(newTrackIndex)!;
+          this.#logger.warn(`Current track after seeking to ${millisToMinutesAndSeconds(positionInStream)} in episode is "${currentTrack.title}"`);
+        }
+      }
       // Recalculate next song interval
       const newPositionInTrack =
         newPositionInStream - (currentTrack.elapsed ?? 0);
@@ -623,8 +649,8 @@ export class PlayerWrapper extends EventEmitter {
     }
   }
 
-  #toPlayerTrackInfo(track: BlockTrack): PlayerTrackInfo {
-    return {
+  #toPlayerTrackInfo(track: BlockTrack, block: Block): PlayerTrackInfo {
+    const info = {
       ..._.pick(track, [
         'id',
         'type',
@@ -642,6 +668,13 @@ export class PlayerWrapper extends EventEmitter {
       ]),
       positionInStream: track.elapsed || 0
     };
+    // For episodes (type 'T' blocks), we adopt the block's duration for the track.
+    // Because semantically, it makes sense for the user to see an episode as a single track.
+    if (block.type === 'T') {
+      info.duration = block.duration;
+      info.positionInStream = 0;
+    }
+    return info;
   }
 
   #logBlockSummary() {
