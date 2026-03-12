@@ -124,8 +124,8 @@ export class PlayerWrapper extends EventEmitter {
     this.#setStatus({ state: 'loading' });
     try {
       await this.#api.auth();
-      const channel_id = typeof channel === 'string' ? channel : channel.id;
-      const episode_id =
+      const channelId = typeof channel === 'string' ? channel : channel.id;
+      const episodeId =
         episode ?
           typeof episode === 'string' ?
             episode
@@ -137,14 +137,14 @@ export class PlayerWrapper extends EventEmitter {
         quality: this.#quality,
         action: 'start',
         info: true,
-        channel_id,
-        episode_id,
-        audio_type: ''
+        channelId,
+        episodeId,
+        audioType: ''
       });
       if (signal.aborted) {
         return;
       }
-      this.#logger.info(`Obtained block for channel "${channel_id}"`);
+      this.#logger.info(`Obtained block for channel "${channelId}"`);
       const validationResult = this.#validateBlock(block);
       if (!validationResult.validated) {
         this.#logger.error(
@@ -192,13 +192,13 @@ export class PlayerWrapper extends EventEmitter {
         quality: this.#quality,
         action: 'play',
         info: true,
-        channel_id: this.#currentBlock.channel.id,
-        slice_num:
-          this.#currentBlock.channel.isER ?
+        channelId: this.#currentBlock.channel.id,
+        sliceNum:
+          this.#currentBlock.channel.isEpisodicRadio ?
             String(Number.MAX_SAFE_INTEGER)
-          : currentTrack.slice_num,
-        episode_id: currentTrack.episode_id,
-        audio_type: this.#currentBlock.type
+          : currentTrack.sliceNum,
+        episodeId: currentTrack.episodeId,
+        audioType: this.#currentBlock.type
       });
       this.#logger.info('Obtained updated block');
       const validationResult = this.#validateBlock(block);
@@ -228,8 +228,8 @@ export class PlayerWrapper extends EventEmitter {
       channel: {
         id: block.channel.id,
         title: block.channel.title,
-        streamName: block.channel.stream_name,
-        isEpisodeRadio: block.channel.isER
+        streamName: block.channel.streamName,
+        isEpisodicRadio: block.channel.isEpisodicRadio
       },
       track: this.#toPlayerTrackInfo(currentTrack, block)
     });
@@ -251,7 +251,7 @@ export class PlayerWrapper extends EventEmitter {
       // 1. now >= scheduled playback time
       // 2. now < scheduled playback time + duration
       // We can then calculate the starting position to play in the current track.
-      const { sched_time_millis: scheduled, duration } = currentTrack;
+      const { schedTimeMillis: scheduled, duration } = currentTrack;
       const synced = now >= scheduled && now < scheduled + duration;
       if (synced) {
         startPositionInTrack = now - scheduled;
@@ -264,7 +264,7 @@ export class PlayerWrapper extends EventEmitter {
     if (startPositionInStream > 0) {
       this.#logger.debug(
         'Current track scheduled playback vs. current time: ' +
-          millisToLocaleDateTimeString(currentTrack.sched_time_millis) +
+          millisToLocaleDateTimeString(currentTrack.schedTimeMillis) +
           ' <-> ' +
           millisToLocaleDateTimeString(now)
       );
@@ -384,7 +384,7 @@ export class PlayerWrapper extends EventEmitter {
       await this.#api.updateHistory({
         currentBlock: this.#currentBlock,
         currentTrack: currentTrack,
-        play_position: startPosition
+        playPosition: startPosition
       });
     }
   }
@@ -554,7 +554,7 @@ export class PlayerWrapper extends EventEmitter {
       await this.#api.updateHistory({
         currentBlock: this.#currentBlock,
         currentTrack: currentTrack,
-        play_position: position,
+        playPosition: position,
         pause: true
       });
       this.#setStatus({ state: 'playing' });
@@ -674,7 +674,7 @@ export class PlayerWrapper extends EventEmitter {
         'title',
         'artist',
         'album',
-        'episode_id',
+        'episodeId',
         'year',
         'duration',
         'slideshow',

@@ -7,7 +7,7 @@ export type PlayerTrackInfo = Pick<
   | 'title'
   | 'artist'
   | 'album'
-  | 'episode_id'
+  | 'episodeId'
   | 'year'
   | 'duration'
   | 'slideshow'
@@ -26,7 +26,7 @@ export interface PlayerStatus {
     id: string;
     title: string;
     streamName: string;
-    isEpisodeRadio: boolean;
+    isEpisodicRadio: boolean;
   } | null;
   track: PlayerTrackInfo | null;
 }

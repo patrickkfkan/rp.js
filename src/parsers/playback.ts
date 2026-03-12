@@ -43,8 +43,8 @@ function createPlayResponseSchema(data: any) {
       const channel = {
         id: data.channel.chan,
         title: data.channel.title,
-        stream_name: data.channel.stream_name,
-        isER: data.channel.isER
+        streamName: data.channel.stream_name,
+        isEpisodicRadio: data.channel.isER
       };
       const { format, bitrate } = parseBitrateInPlayResponse(
         data.bitrate,
@@ -53,15 +53,15 @@ function createPlayResponseSchema(data: any) {
       const songData = data.song;
       return {
         event: data.event,
-        slice_num: data.slice_num,
+        sliceNum: data.slice_num,
         type: data.type,
         expiration: data.expiration * 1000,
         duration: data.length * 1000,
         url: data.url,
         channel,
         ext: data.ext,
-        slide_base: slideBase,
-        image_base: imageBase,
+        slideBase: slideBase,
+        imageBase: imageBase,
         tracks:
           Array.isArray(songData) ?
             songData.map<BlockTrack>((song) => ({
@@ -98,14 +98,14 @@ function parseBitrateInPlayResponse(value: string, channel: Block['channel']) {
   }
   // Blocks for certain channels have only a number for bitrate
   // -- Serenity - always bitrate '2' that is 64k aac (ffprobe)
-  if (channel.stream_name === 'serenity' && value === '2') {
+  if (channel.streamName === 'serenity' && value === '2') {
     return {
       format: 'aac',
       bitrate: '64 kbps'
     };
   }
   // -- Radio 2050
-  if (channel.stream_name === 'r2050')
+  if (channel.streamName === 'r2050')
     switch (value) {
       case '0': // Low - 32k aac
         return {
@@ -193,16 +193,11 @@ function createSongInPlayResponseSchema(slideBase: string, imageBase: string) {
         medium: data.cover_medium,
         small: data.cover_small
       },
-      ..._.pick(data, [
-        'type',
-        'event',
-        'slice_num',
-        'episode_id',
-        'sched_time_millis',
-        'elapsed',
-        'event_num',
-        'updateHistory'
-      ])
+      sliceNum: data.slice_num,
+      schedTimeMillis: data.sched_time_millis,
+      episodeId: data.episode_id,
+      eventNum: data.event_num,
+      ..._.pick(data, ['type', 'event', 'elapsed', 'updateHistory'])
     }));
 }
 

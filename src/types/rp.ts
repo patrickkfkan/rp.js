@@ -2,13 +2,13 @@ import { type Track } from './media';
 
 export interface NowPlayingList {
   tracks: (Track & {
-    play_time?: number;
+    playTime?: number;
   })[];
 }
 
 export interface SongInfo {
-  wiki_html: string | null;
-  song_id: string;
+  wikiHtml: string | null;
+  songId: string;
   cover: string | null;
   title: string | null;
   artist: {
@@ -20,10 +20,10 @@ export interface SongInfo {
   album: {
     id: string | null;
     name: string;
-    release_year: string | null;
+    releaseYear: string | null;
     url: string | null;
   } | null;
-  release_date: string | null;
+  releaseDate: string | null;
   rating: string | null;
   length: string | null;
   /**
@@ -34,7 +34,7 @@ export interface SongInfo {
    * Timed lyrics. If available, each entry represents a
    * line of lyrics synchronized to a specific playback time.
    */
-  timed_lyrics:
+  timedLyrics:
     | {
         /** Text of the lyric line. */
         text: string;
@@ -46,7 +46,7 @@ export interface SongInfo {
 }
 
 export interface ArtistInfo {
-  artist_id: string;
+  artistId: string;
   name: string | null;
   bio: string | null;
   images: {
@@ -56,10 +56,10 @@ export interface ArtistInfo {
 }
 
 export interface AlbumInfo {
-  album_id: string;
+  albumId: string;
   name: string | null;
-  artist_id: string | null;
-  release_date: string | null;
+  artistId: string | null;
+  releaseDate: string | null;
   year: string | null;
   label: string | null;
   cover: string | null;
@@ -78,7 +78,7 @@ export interface AlbumInfo {
      * Duration in milliseconds.
      */
     duration: number | null;
-    release_date: string | null;
+    releaseDate: string | null;
     year: string | null;
   }[];
 }

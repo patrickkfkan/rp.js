@@ -19,10 +19,10 @@ export interface ApiPlayParams {
   quality: AudioQuality;
   action: 'start' | 'play';
   info: boolean;
-  channel_id: string;
-  slice_num?: string;
-  episode_id?: string;
-  audio_type: string;
+  channelId: string;
+  sliceNum?: string;
+  episodeId?: string;
+  audioType: string;
 }
 
 export interface ApiUpdatePauseParams {
@@ -32,7 +32,7 @@ export interface ApiUpdatePauseParams {
 }
 
 export interface ApiUpdateHistoryParams {
-  play_position: number; // Play position in milliseconds
+  playPosition: number; // Play position in milliseconds
   pause?: boolean;
   currentBlock: Block;
   currentTrack: BlockTrack;
@@ -44,15 +44,15 @@ export interface ApiNowPlayingListParams {
 }
 
 export interface ApiGetSongInfoParams {
-  song_id: string;
+  songId: string;
 }
 
 export interface ApiGetArtistInfoParams {
-  artist_id: string;
+  artistId: string;
 }
 
 export interface ApiGetAlbumInfoParams {
-  album_id: string;
+  albumId: string;
 }
 
 export interface ApiGetEpisodeListParams {
@@ -62,7 +62,7 @@ export interface ApiGetEpisodeListParams {
 }
 
 export interface ApiGetEpisodeParams {
-  episode_id: string;
+  episodeId: string;
 }
 
 const API_URL = 'https://api.radioparadise.com/api';
@@ -113,16 +113,16 @@ export class API {
     url.searchParams.set('elapsed', params.elapsed);
     url.searchParams.set('bitrate', params.quality);
     url.searchParams.set('action', params.action);
-    url.searchParams.set('player_id', this.#session.player_id);
+    url.searchParams.set('player_id', this.#session.playerId);
     url.searchParams.set('info', String(params.info));
-    url.searchParams.set('chan', params.channel_id);
-    if (params.slice_num) {
-      url.searchParams.set('slice_num', params.slice_num);
+    url.searchParams.set('chan', params.channelId);
+    if (params.sliceNum) {
+      url.searchParams.set('slice_num', params.sliceNum);
     }
-    if (params.episode_id) {
-      url.searchParams.set('episode_id', params.episode_id);
+    if (params.episodeId) {
+      url.searchParams.set('episode_id', params.episodeId);
     }
-    url.searchParams.set('audio_type', params.audio_type);
+    url.searchParams.set('audio_type', params.audioType);
     this.#logger.debug(`API: ${maskPlayerIdFromUrl(url.toString())}`);
     const res = await this.#session.fetch(url);
     return parsePlayResponse(await res.json());
@@ -133,16 +133,16 @@ export class API {
     const block = params.currentBlock;
     const currentTrack = params.currentTrack;
     url.searchParams.set('pause', String(params.position));
-    url.searchParams.set('player_id', this.#session.player_id);
+    url.searchParams.set('player_id', this.#session.playerId);
     url.searchParams.set('event', currentTrack.event);
     url.searchParams.set('chan', block.channel.id);
     url.searchParams.set('type', currentTrack.type);
-    url.searchParams.set('slice_num', currentTrack.slice_num);
+    url.searchParams.set('slice_num', currentTrack.sliceNum);
     url.searchParams.set('playtime_secs', String(Math.ceil(Date.now() / 1000)));
     url.searchParams.set('song_id', currentTrack.id || 'null');
-    url.searchParams.set('episode_id', currentTrack.episode_id);
-    if (currentTrack.event_num !== undefined) {
-      url.searchParams.set('event_num', String(currentTrack.event_num));
+    url.searchParams.set('episode_id', currentTrack.episodeId);
+    if (currentTrack.eventNum !== undefined) {
+      url.searchParams.set('event_num', String(currentTrack.eventNum));
     }
     this.#logger.debug(`API: ${maskPlayerIdFromUrl(url.toString())}`);
     try {
@@ -163,24 +163,24 @@ export class API {
     const block = params.currentBlock;
     url.searchParams.set('song_id', currentTrack.id);
     url.searchParams.set('chan', block.channel.id);
-    url.searchParams.set('player_id', this.#session.player_id);
+    url.searchParams.set('player_id', this.#session.playerId);
     url.searchParams.set('event', currentTrack.event);
     url.searchParams.set('type', currentTrack.type);
-    url.searchParams.set('slice_num', currentTrack.slice_num);
-    url.searchParams.set('episode_id', currentTrack.episode_id);
-    if (currentTrack.event_num !== undefined) {
-      url.searchParams.set('event_num', String(currentTrack.event_num));
+    url.searchParams.set('slice_num', currentTrack.sliceNum);
+    url.searchParams.set('episode_id', currentTrack.episodeId);
+    if (currentTrack.eventNum !== undefined) {
+      url.searchParams.set('event_num', String(currentTrack.eventNum));
     }
     if (params.pause) {
       url.searchParams.set('pause', '1');
     }
     url.searchParams.set(
       'time_relative',
-      '-' + String(Math.max(0, Math.ceil(params.play_position / 1000)))
+      '-' + String(Math.max(0, Math.ceil(params.playPosition / 1000)))
     );
     url.searchParams.set(
       'play_position_millis',
-      String(Math.max(0, Math.ceil(params.play_position)))
+      String(Math.max(0, Math.ceil(params.playPosition)))
     );
     url.searchParams.set('playtime_secs', String(Math.ceil(Date.now() / 1000)));
     this.#logger.debug(`API: ${maskPlayerIdFromUrl(url.toString())}`);
@@ -208,7 +208,7 @@ export class API {
     const url = new URL(endpoint);
     const block = params.currentBlock;
     url.searchParams.set('chan', block.channel.id);
-    url.searchParams.set('player_id', this.#session.player_id);
+    url.searchParams.set('player_id', this.#session.playerId);
     if (offset) {
       url.searchParams.set('list_offset', offset);
     } else {
@@ -222,7 +222,7 @@ export class API {
   async getSongInfo(params: ApiGetSongInfoParams) {
     await this.#ensureAuth();
     const url = new URL(SONG_INFO_ENDPOINT);
-    url.searchParams.set('song_id', params.song_id);
+    url.searchParams.set('song_id', params.songId);
     this.#logger.debug(`API: ${url.toString()}`);
     const res = await this.#session.fetch(url);
     return parseSongInfoResponse(await res.json());
@@ -231,7 +231,7 @@ export class API {
   async getArtistInfo(params: ApiGetArtistInfoParams) {
     await this.#ensureAuth();
     const url = new URL(ARTIST_INFO_ENDPOINT);
-    url.searchParams.set('artist_id', params.artist_id);
+    url.searchParams.set('artist_id', params.artistId);
     this.#logger.debug(`API: ${url.toString()}`);
     const res = await this.#session.fetch(url);
     return parseArtistInfoResponse(await res.json());
@@ -240,7 +240,7 @@ export class API {
   async getAlbumInfo(params: ApiGetAlbumInfoParams) {
     await this.#ensureAuth();
     const url = new URL(ALBUM_INFO_ENDPOINT);
-    url.searchParams.set('album_id', params.album_id);
+    url.searchParams.set('album_id', params.albumId);
     this.#logger.debug(`API: ${url.toString()}`);
     const res = await this.#session.fetch(url);
     return parseAlbumInfoResponse(await res.json());
@@ -260,11 +260,10 @@ export class API {
   }
 
   async getEpisode(params: ApiGetEpisodeParams) {
-    const { episode_id } = params;
     const url = new URL(EPISODE_LIST_ENDPOINT);
     url.searchParams.set('publicationState', 'live');
     url.searchParams.set('populate', 'deep');
-    url.searchParams.set('filters[$or][0][episode_id][$eq]', episode_id);
+    url.searchParams.set('filters[$or][0][episode_id][$eq]', params.episodeId);
     url.searchParams.set('pagination[start]', '0');
     url.searchParams.set('pagination[limit]', '1');
     this.#logger.debug(`API: ${url.toString()}`);

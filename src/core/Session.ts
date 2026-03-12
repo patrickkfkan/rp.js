@@ -27,7 +27,7 @@ export class Session {
   constructor(options?: SessionOptions) {
     this.#logger = options?.logger ?? NULL_LOGGER;
     let jar: CookieJar | null = null;
-    let player_id: string | null = null;
+    let playerId: string | null = null;
     if (options?.data) {
       try {
         const { player_id: parsedPlayerId, jar: parsedJar } =
@@ -41,7 +41,7 @@ export class Session {
             'Ignoring provided session data: missing cookie jar'
           );
         } else {
-          player_id = parsedPlayerId;
+          playerId = parsedPlayerId;
           jar = CookieJar.deserializeSync(parsedJar);
           this.#logger.info('Session data loaded successfully');
         }
@@ -50,18 +50,18 @@ export class Session {
           `Failed to load session data: ${getErrorMessage(error)} - will initialize new session`
         );
         jar = null;
-        player_id = null;
+        playerId = null;
       }
     }
-    if (!player_id) {
-      player_id = Session.#generatePlayerId();
+    if (!playerId) {
+      playerId = Session.#generatePlayerId();
     }
     if (!jar) {
       jar = new CookieJar();
-      jar.setCookieSync(`player_id=${player_id}`, API_URL);
+      jar.setCookieSync(`player_id=${playerId}`, API_URL);
       jar.setCookieSync('source=24', API_URL);
     }
-    this.#playerId = player_id;
+    this.#playerId = playerId;
     this.#jar = jar;
     this.#agent = new CookieAgent({ cookies: { jar } });
   }
@@ -78,7 +78,7 @@ export class Session {
     });
   }
 
-  get player_id() {
+  get playerId() {
     return this.#playerId;
   }
 

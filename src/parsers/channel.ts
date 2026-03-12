@@ -23,14 +23,15 @@ export function parseListChannelsResponse(data: any) {
   return ListChannelsResponseSchema.transform<Channel[]>((arr) =>
     arr.map((data) => ({
       id: data.chan,
-      ..._.pick(data, ['title', 'stream_name', 'slug', 'type']),
+      ..._.pick(data, ['title', 'slug', 'type']),
+      streamName: data.stream_name,
       images: {
         default: data.image ?? null,
         banner: data.banner_url ?? null,
-        banner_mini: data.banner_mini_url ?? null,
+        bannerMini: data.banner_mini_url ?? null,
         carousel: data.carousel_url ?? null
       },
-      is_episodic_radio: data.modes.type === 'episodic_radio'
+      isEpisodicRadio: data.modes.type === 'episodic_radio'
     }))
   ).parse(data);
 }

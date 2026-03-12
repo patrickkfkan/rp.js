@@ -7,7 +7,7 @@ function createNowPlayingResponseSchema(block: Block) {
   return z
     .object({
       song: z.array(
-        createSongInNowPlayingResponseSchema(block.slide_base, block.image_base)
+        createSongInNowPlayingResponseSchema(block.slideBase, block.imageBase)
       )
     })
     .transform<NowPlayingList>((data) => ({

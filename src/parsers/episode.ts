@@ -94,10 +94,10 @@ const EpisodeSchema = z
         name: credit.name,
         role: credit.role ?? null
       })) || [],
-    guest_bio: data.guest_bio ?? null,
+    guestBio: data.guest_bio ?? null,
     overview: data.overview ?? null,
     season: data.season,
-    bio_image: {
+    bioImage: {
       large: applyImageBaseUrl(
         data.bio_image?.data?.attributes.formats?.large?.url
       ),
@@ -111,7 +111,7 @@ const EpisodeSchema = z
         data.bio_image?.data?.attributes.formats?.thumbnail?.url
       )
     },
-    episode_image: {
+    episodeImage: {
       large: applyImageBaseUrl(
         data.episode_image?.image?.data?.attributes.formats.large?.url
       ),

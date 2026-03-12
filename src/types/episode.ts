@@ -7,16 +7,16 @@ export interface Episode {
     name: string;
     role: string | null;
   }[];
-  guest_bio: string | null;
+  guestBio: string | null;
   overview: string | null;
   season: number;
-  bio_image: {
+  bioImage: {
     large: string | null;
     small: string | null;
     medium: string | null;
     thumbnail: string | null;
   };
-  episode_image: {
+  episodeImage: {
     large: string | null;
     small: string | null;
     medium: string | null;

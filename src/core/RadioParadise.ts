@@ -48,21 +48,21 @@ export interface GetSongInfoParams {
   /**
    * The ID of the song to retrieve.
    */
-  song_id?: string;
+  songId?: string;
 }
 
 export interface GetArtistInfoParams {
   /**
    * The ID of ths artist to retrieve.
    */
-  artist_id?: string;
+  artistId?: string;
 }
 
 export interface GetAlbumInfoParams {
   /**
    * The ID of the album to retrieve.
    */
-  album_id?: string;
+  albumId?: string;
 }
 
 export interface GetEpisodeListParams {
@@ -90,7 +90,7 @@ export interface GetEpisodeParams {
   /**
    * The ID of the episode to retrieve.
    */
-  episode_id?: string;
+  episodeId?: string;
 }
 
 /**
@@ -158,7 +158,7 @@ export class RadioParadise extends EventEmitter {
 
   /**
    * Plays content from the specified channel or episode.
-   * 
+   *
    * - If `episode` is provided, plays that specific episode from the channel.
    * - If `episode` is omitted, plays the live stream or default content of the channel.
    *
@@ -166,7 +166,7 @@ export class RadioParadise extends EventEmitter {
    * @param {string|Object} [episode] - Optional. The episode ID (string) or episode object.
    *
    * @throws {Error} If an episode is provided but the channel does not support episodic content
-   * (i.e., `channel.is_episodic_radio` is false).
+   * (i.e., `channel.isEpisodicRadio` is false).
    */
   async play(channel: string | Channel, episode?: string | Episode) {
     if (episode) {
@@ -182,7 +182,7 @@ export class RadioParadise extends EventEmitter {
       } else {
         channelObj = channel;
       }
-      if (!channelObj.is_episodic_radio) {
+      if (!channelObj.isEpisodicRadio) {
         throw Error(
           `Cannot play episode from non-episodic channel "${channelObj.title}"`
         );
@@ -249,7 +249,7 @@ export class RadioParadise extends EventEmitter {
   }
 
   /**
-   * Retrieves information about the song specified by `params.song_id`,
+   * Retrieves information about the song specified by `params.songId`,
    * or the current track if omitted.
    *
    * Returns `null` if no information is available.
@@ -258,32 +258,32 @@ export class RadioParadise extends EventEmitter {
    * @returns The {@link SongInfo}, or `null`.
    */
   async getSongInfo(params?: GetSongInfoParams) {
-    const song_id = params?.song_id;
-    if (!song_id) {
+    const songId = params?.songId;
+    if (!songId) {
       const { track } = this.getStatus() ?? {};
       if (!track) {
-        this.#logger.warn('No track in progress, and no song_id was provided.');
+        this.#logger.warn('No track in progress, and no songId was provided.');
         return null;
       }
       if (!track.id) {
         this.#logger.warn(
-          'Current track does not have a song_id, and no song_id was provided.'
+          'Current track does not have a songId, and no songId was provided.'
         );
         return null;
       }
       if (track.type !== 'M') {
         this.#logger.warn(
-          'Current track is not a song, and no song_id was provided.'
+          'Current track is not a song, and no songId was provided.'
         );
         return null;
       }
-      return this.#api.getSongInfo({ song_id: track.id });
+      return this.#api.getSongInfo({ songId: track.id });
     }
-    return this.#api.getSongInfo({ song_id });
+    return this.#api.getSongInfo({ songId });
   }
 
   /**
-   * Retrieves information about the artist specified by `params.artist_id`,
+   * Retrieves information about the artist specified by `params.artistId`,
    * or the current track's artist if omitted.
    *
    * Returns `null` if no information is available.
@@ -292,28 +292,28 @@ export class RadioParadise extends EventEmitter {
    * @returns The {@link ArtistInfo}, or `null`.
    */
   async getArtistInfo(params?: GetArtistInfoParams) {
-    const artist_id = params?.artist_id;
-    if (!artist_id) {
+    const artistId = params?.artistId;
+    if (!artistId) {
       const song = await this.getSongInfo();
       if (!song) {
         this.#logger.warn(
-          'No song info available, and no artist_id was provided.'
+          'No song info available, and no artistId was provided.'
         );
         return null;
       }
       if (!song.artist?.id) {
         this.#logger.warn(
-          'Song info does not contain artist_id, and no artist_id was provided.'
+          'Song info does not contain artistId, and no artistId was provided.'
         );
         return null;
       }
-      return this.#api.getArtistInfo({ artist_id: song.artist.id });
+      return this.#api.getArtistInfo({ artistId: song.artist.id });
     }
-    return this.#api.getArtistInfo({ artist_id });
+    return this.#api.getArtistInfo({ artistId });
   }
 
   /**
-   * Retrieves information about the album specified by `params.album_id`,
+   * Retrieves information about the album specified by `params.albumId`,
    * or the current track's album if omitted.
    *
    * Returns `null` if no information is available.
@@ -322,24 +322,24 @@ export class RadioParadise extends EventEmitter {
    * @returns The {@link AlbumInfo}, or `null`.
    */
   async getAlbumInfo(params?: GetAlbumInfoParams) {
-    const album_id = params?.album_id;
-    if (!album_id) {
+    const albumId = params?.albumId;
+    if (!albumId) {
       const song = await this.getSongInfo();
       if (!song) {
         this.#logger.warn(
-          'No song info available, and no album_id was provided.'
+          'No song info available, and no albumId was provided.'
         );
         return null;
       }
       if (!song.album?.id) {
         this.#logger.warn(
-          'Song info does not contain album_id, and no album_id was provided.'
+          'Song info does not contain albumId, and no albumId was provided.'
         );
         return null;
       }
-      return this.#api.getAlbumInfo({ album_id: song.album.id });
+      return this.#api.getAlbumInfo({ albumId: song.album.id });
     }
-    return this.#api.getAlbumInfo({ album_id });
+    return this.#api.getAlbumInfo({ albumId });
   }
 
   /**
@@ -354,25 +354,25 @@ export class RadioParadise extends EventEmitter {
   }
 
   /**
-   * Retrieves episode data specified by `params.episode_id`,
+   * Retrieves episode data specified by `params.episodeId`,
    * or the current episode if omitted.
-   * 
+   *
    * @param params Request parameters. See {@link GetEpisodeParams}.
    * @returns The {@link Episode}, or `null`.
    */
   async getEpisode(params?: GetEpisodeParams) {
-    let episode_id = params?.episode_id;
-    if (!episode_id) {
+    let episodeId = params?.episodeId;
+    if (!episodeId) {
       const { channel, track } = this.getStatus() ?? {};
-      if (!channel || !channel.isEpisodeRadio || !track || track.type !== 'T') {
+      if (!channel || !channel.isEpisodicRadio || !track || track.type !== 'T') {
         this.#logger.warn(
-          'No episode in progress, and no episode_id was provided'
+          'No episode in progress, and no episodeId was provided'
         );
         return null;
       }
-      episode_id = track.episode_id;
+      episodeId = track.episodeId;
     }
-    return await this.#api.getEpisode({ episode_id });
+    return await this.#api.getEpisode({ episodeId });
   }
 
   /**

@@ -1,14 +1,14 @@
 export interface Channel {
   id: string;
   title: string;
-  stream_name: string;
+  streamName: string;
   slug: string;
   type: string;
-  is_episodic_radio: boolean;
+  isEpisodicRadio: boolean;
   images: {
     default: string | null;
     banner: string | null;
-    banner_mini: string | null;
+    bannerMini: string | null;
     carousel: string | null;
   };
 }
@@ -43,17 +43,17 @@ export type BlockTrack = Track & {
    * - 'P': Promotion
    */
   type: string;
-  slice_num: string;
+  sliceNum: string;
   /**
    * Scheduled playback date/time in milliseconds.
    */
-  sched_time_millis: number;
+  schedTimeMillis: number;
   /**
    * Position of track within the block's stream, in milliseconds.
    */
   elapsed?: number;
-  episode_id: string;
-  event_num?: number;
+  episodeId: string;
+  eventNum?: number;
   updateHistory: boolean;
   format: string | null;
   bitrate: string | null;
@@ -61,7 +61,7 @@ export type BlockTrack = Track & {
 
 export interface Block {
   event: string;
-  slice_num: string;
+  sliceNum: string;
   /**
    * Block type.
    *
@@ -82,14 +82,11 @@ export interface Block {
   channel: {
     id: string;
     title: string;
-    stream_name: string;
-    /**
-     * Is episode radio (e.g. Radio 2050)?
-     */
-    isER: boolean;
+    streamName: string;
+    isEpisodicRadio: boolean;
   };
   ext: string;
-  slide_base: string;
-  image_base: string;
+  slideBase: string;
+  imageBase: string;
   tracks: BlockTrack[];
 }

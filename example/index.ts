@@ -111,7 +111,7 @@ async function run() {
 
   ui.episodeList.on('select', (episode) => {
     void (async () => {
-      const channel = channels.find((chan) => chan.is_episodic_radio);
+      const channel = channels.find((chan) => chan.isEpisodicRadio);
       if (!channel) {
         logger.error('No episodic radio found');
         return;

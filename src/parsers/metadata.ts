@@ -34,8 +34,8 @@ const SongInfoResponseSchema = z
     rp_song_link: z.string().nullish()
   })
   .transform<SongInfo>((data) => ({
-    wiki_html: data.wiki_html ?? null,
-    song_id: data.song_id,
+    wikiHtml: data.wiki_html ?? null,
+    songId: data.song_id,
     cover: data.cover ?? null,
     title: data.title ?? null,
     artist:
@@ -55,18 +55,18 @@ const SongInfoResponseSchema = z
         {
           id: data.album_id ?? null,
           name: data.album,
-          release_year: data.album_release_year ?? null,
+          releaseYear: data.album_release_year ?? null,
           url:
             data.rp_album_link ?
               new URL(data.rp_album_link, SITE_URL).toString()
             : null
         }
       : null,
-    release_date: data.release_date ?? null,
+    releaseDate: data.release_date ?? null,
     rating: data.avg_rating ?? null,
     length: data.length ?? null,
     lyrics: data.lyrics ?? null,
-    timed_lyrics:
+    timedLyrics:
       data.mm_lyrics ?
         data.mm_lyrics.map((line) => ({
           text: line.text,
@@ -91,8 +91,8 @@ const ArtistInfoResponseSchema = z
       artist_images: z.array(z.url().nullish().catch(null)).nullish()
     })
   })
-  .transform(({ artist: data }) => ({
-    artist_id: data.artist_id,
+  .transform<ArtistInfo>(({ artist: data }) => ({
+    artistId: data.artist_id,
     name: data.name ?? null,
     bio: data.bio ?? null,
     /**
@@ -144,7 +144,7 @@ const SongInAlbumInfoResponseSchema = z
         }
       : null,
     duration: data.duration ?? null,
-    release_date: data.release_date ?? null,
+    releaseDate: data.release_date ?? null,
     year: data.year ?? null
   }));
 
@@ -161,11 +161,11 @@ const AlbumInfoResponseSchema = z
     }),
     songs: z.array(SongInAlbumInfoResponseSchema)
   })
-  .transform(({ album: data, songs }) => ({
-    album_id: data.album_id,
+  .transform<AlbumInfo>(({ album: data, songs }) => ({
+    albumId: data.album_id,
     name: data.title ?? null,
-    artist_id: data.artist_id ?? null,
-    release_date: data.release_date ?? null,
+    artistId: data.artist_id ?? null,
+    releaseDate: data.release_date ?? null,
     year: data.year ?? null,
     label: data.label ?? null,
     cover: data.cover ?? null,
