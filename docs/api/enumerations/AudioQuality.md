@@ -6,7 +6,7 @@
 
 # Enumeration: AudioQuality
 
-Defined in: [src/core/RadioParadise.ts:9](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L9)
+Defined in: [src/core/RadioParadise.ts:9](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/RadioParadise.ts#L9)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [src/core/RadioParadise.ts:9](https://github.com/patrickkfkan/rp.js/
 
 > **Flac**: `"4"`
 
-Defined in: [src/core/RadioParadise.ts:14](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L14)
+Defined in: [src/core/RadioParadise.ts:14](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/RadioParadise.ts#L14)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/core/RadioParadise.ts:14](https://github.com/patrickkfkan/rp.js
 
 > **High**: `"2"`
 
-Defined in: [src/core/RadioParadise.ts:12](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L12)
+Defined in: [src/core/RadioParadise.ts:12](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/RadioParadise.ts#L12)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/core/RadioParadise.ts:12](https://github.com/patrickkfkan/rp.js
 
 > **Low**: `"0"`
 
-Defined in: [src/core/RadioParadise.ts:10](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L10)
+Defined in: [src/core/RadioParadise.ts:10](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/RadioParadise.ts#L10)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/core/RadioParadise.ts:10](https://github.com/patrickkfkan/rp.js
 
 > **Med**: `"1"`
 
-Defined in: [src/core/RadioParadise.ts:11](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L11)
+Defined in: [src/core/RadioParadise.ts:11](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/RadioParadise.ts#L11)
 
 ***
 
@@ -46,4 +46,4 @@ Defined in: [src/core/RadioParadise.ts:11](https://github.com/patrickkfkan/rp.js
 
 > **Ultra**: `"3"`
 
-Defined in: [src/core/RadioParadise.ts:13](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/RadioParadise.ts#L13)
+Defined in: [src/core/RadioParadise.ts:13](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/RadioParadise.ts#L13)

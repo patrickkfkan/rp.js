@@ -6,7 +6,7 @@
 
 # Interface: Channel
 
-Defined in: [src/types/media.ts:1](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L1)
+Defined in: [src/types/media.ts:1](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L1)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/media.ts:1](https://github.com/patrickkfkan/rp.js/blob/3f
 
 > **id**: `string`
 
-Defined in: [src/types/media.ts:2](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L2)
+Defined in: [src/types/media.ts:2](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L2)
 
 ***
 
@@ -22,15 +22,15 @@ Defined in: [src/types/media.ts:2](https://github.com/patrickkfkan/rp.js/blob/3f
 
 > **images**: `object`
 
-Defined in: [src/types/media.ts:8](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L8)
+Defined in: [src/types/media.ts:8](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L8)
 
 #### banner
 
 > **banner**: `string` \| `null`
 
-#### banner\_mini
+#### bannerMini
 
-> **banner\_mini**: `string` \| `null`
+> **bannerMini**: `string` \| `null`
 
 #### carousel
 
@@ -42,11 +42,11 @@ Defined in: [src/types/media.ts:8](https://github.com/patrickkfkan/rp.js/blob/3f
 
 ***
 
-### is\_episodic\_radio
+### isEpisodicRadio
 
-> **is\_episodic\_radio**: `boolean`
+> **isEpisodicRadio**: `boolean`
 
-Defined in: [src/types/media.ts:7](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L7)
+Defined in: [src/types/media.ts:7](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L7)
 
 ***
 
@@ -54,15 +54,15 @@ Defined in: [src/types/media.ts:7](https://github.com/patrickkfkan/rp.js/blob/3f
 
 > **slug**: `string`
 
-Defined in: [src/types/media.ts:5](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L5)
+Defined in: [src/types/media.ts:5](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L5)
 
 ***
 
-### stream\_name
+### streamName
 
-> **stream\_name**: `string`
+> **streamName**: `string`
 
-Defined in: [src/types/media.ts:4](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L4)
+Defined in: [src/types/media.ts:4](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L4)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [src/types/media.ts:4](https://github.com/patrickkfkan/rp.js/blob/3f
 
 > **title**: `string`
 
-Defined in: [src/types/media.ts:3](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L3)
+Defined in: [src/types/media.ts:3](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L3)
 
 ***
 
@@ -78,4 +78,4 @@ Defined in: [src/types/media.ts:3](https://github.com/patrickkfkan/rp.js/blob/3f
 
 > **type**: `string`
 
-Defined in: [src/types/media.ts:6](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L6)
+Defined in: [src/types/media.ts:6](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L6)

@@ -6,15 +6,15 @@
 
 # Interface: PlayerStatus
 
-Defined in: [src/core/Player.ts:23](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L23)
+Defined in: [src/core/Player.ts:23](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/Player.ts#L23)
 
 ## Properties
 
 ### channel
 
-> **channel**: \{ `id`: `string`; `isEpisodeRadio`: `boolean`; `streamName`: `string`; `title`: `string`; \} \| `null`
+> **channel**: \{ `id`: `string`; `isEpisodicRadio`: `boolean`; `streamName`: `string`; `title`: `string`; \} \| `null`
 
-Defined in: [src/core/Player.ts:25](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L25)
+Defined in: [src/core/Player.ts:25](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/Player.ts#L25)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/core/Player.ts:25](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **state**: `"idle"` \| `"playing"` \| `"paused"` \| `"loading"`
 
-Defined in: [src/core/Player.ts:24](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L24)
+Defined in: [src/core/Player.ts:24](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/Player.ts#L24)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [src/core/Player.ts:24](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **track**: [`PlayerTrackInfo`](../type-aliases/PlayerTrackInfo.md) \| `null`
 
-Defined in: [src/core/Player.ts:31](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/core/Player.ts#L31)
+Defined in: [src/core/Player.ts:31](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/core/Player.ts#L31)

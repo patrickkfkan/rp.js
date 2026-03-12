@@ -8,7 +8,7 @@
 
 > **BlockTrack** = [`Track`](../interfaces/Track.md) & `object`
 
-Defined in: [src/types/media.ts:36](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L36)
+Defined in: [src/types/media.ts:36](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L36)
 
 ## Type Declaration
 
@@ -22,27 +22,27 @@ Defined in: [src/types/media.ts:36](https://github.com/patrickkfkan/rp.js/blob/3
 
 Position of track within the block's stream, in milliseconds.
 
-### episode\_id
+### episodeId
 
-> **episode\_id**: `string`
+> **episodeId**: `string`
 
-### event\_num?
+### eventNum?
 
-> `optional` **event\_num**: `number`
+> `optional` **eventNum**: `number`
 
 ### format
 
 > **format**: `string` \| `null`
 
-### sched\_time\_millis
+### schedTimeMillis
 
-> **sched\_time\_millis**: `number`
+> **schedTimeMillis**: `number`
 
 Scheduled playback date/time in milliseconds.
 
-### slice\_num
+### sliceNum
 
-> **slice\_num**: `string`
+> **sliceNum**: `string`
 
 ### type
 

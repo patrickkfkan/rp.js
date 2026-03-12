@@ -6,7 +6,7 @@
 
 # Interface: Track
 
-Defined in: [src/types/media.ts:16](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L16)
+Defined in: [src/types/media.ts:16](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L16)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types/media.ts:16](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **album**: `string` \| `null`
 
-Defined in: [src/types/media.ts:20](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L20)
+Defined in: [src/types/media.ts:20](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L20)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/media.ts:20](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **artist**: `string` \| `null`
 
-Defined in: [src/types/media.ts:19](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L19)
+Defined in: [src/types/media.ts:19](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L19)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/types/media.ts:19](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **cover**: `object`
 
-Defined in: [src/types/media.ts:28](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L28)
+Defined in: [src/types/media.ts:28](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L28)
 
 #### large
 
@@ -50,7 +50,7 @@ Defined in: [src/types/media.ts:28](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **duration**: `number` \| `null`
 
-Defined in: [src/types/media.ts:25](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L25)
+Defined in: [src/types/media.ts:25](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L25)
 
 Duration in milliseconds.
 
@@ -60,7 +60,7 @@ Duration in milliseconds.
 
 > **event**: `string`
 
-Defined in: [src/types/media.ts:33](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L33)
+Defined in: [src/types/media.ts:33](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L33)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/types/media.ts:33](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **id**: `string` \| `null`
 
-Defined in: [src/types/media.ts:17](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L17)
+Defined in: [src/types/media.ts:17](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L17)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/types/media.ts:17](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **rating**: `string` \| `null`
 
-Defined in: [src/types/media.ts:27](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L27)
+Defined in: [src/types/media.ts:27](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L27)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [src/types/media.ts:27](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **slideshow**: `string`[] \| `null`
 
-Defined in: [src/types/media.ts:26](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L26)
+Defined in: [src/types/media.ts:26](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L26)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [src/types/media.ts:26](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **title**: `string` \| `null`
 
-Defined in: [src/types/media.ts:18](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L18)
+Defined in: [src/types/media.ts:18](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L18)
 
 ***
 
@@ -100,4 +100,4 @@ Defined in: [src/types/media.ts:18](https://github.com/patrickkfkan/rp.js/blob/3
 
 > **year**: `string` \| `null`
 
-Defined in: [src/types/media.ts:21](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/media.ts#L21)
+Defined in: [src/types/media.ts:21](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/media.ts#L21)

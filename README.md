@@ -140,7 +140,7 @@ await rp.play('0');
   - If `episode` is omitted, plays the live stream or default content of the channel.
 
   > [!NOTE]
-  > Episodes can only be played on channels that support episodic content. Doing otherwise will result in an error. Inspect the channel's `is_episodic_radio` property to check support.
+  > Episodes can only be played on channels that support episodic content. Doing otherwise will result in an error. Inspect the channel's `isEpisodicRadio` property to check support.
   
   #### Parameters
   - **channel**: The channel ID (`string`) or [Channel](./docs/api/interfaces/Channel.md) object.
@@ -343,11 +343,11 @@ console.log(`Status: ${status.state}${status.track ? `: ${status.track.title}` :
   <summary><code>getSongInfo(params)</code></summary>
 
   #### Description
-  Retrieves information about the song specified by `params.song_id`, or the current track if omitted.
+  Retrieves information about the song specified by `params.songId`, or the current track if omitted.
 
   #### Parameters
   - **params**: (*optional*) Request parameters
-    - **song_id**: (*optional*) The ID of the song to retrieve (`string`).
+    - **songId**: (*optional*) The ID of the song to retrieve (`string`).
 
   #### Returns
   `Promise<SongInfo | null>`: A promise that resolves to a [SongInfo](./docs/api/interfaces/SongInfo.md) object, or `null` if no information is available.
@@ -368,11 +368,11 @@ console.log(`Status: ${status.state}${status.track ? `: ${status.track.title}` :
   <summary><code>getArtistInfo(params)</code></summary>
 
   #### Description
-  Retrieves information about the artist specified by `params.artist_id`, or the current track's artist if omitted.
+  Retrieves information about the artist specified by `params.artistId`, or the current track's artist if omitted.
 
   #### Parameters
   - **params**: (*optional*) Request parameters
-    - **artist_id**: (*optional*) The ID of the artist to retrieve (`string`).
+    - **artistId**: (*optional*) The ID of the artist to retrieve (`string`).
 
   #### Returns
   `Promise<ArtistInfo | null>`: A promise that resolves to a [ArtistInfo](./docs/api/interfaces/ArtistInfo.md) object, or `null` if no information is available.
@@ -393,11 +393,11 @@ console.log(`Status: ${status.state}${status.track ? `: ${status.track.title}` :
   <summary><code>getAlbumInfo(params)</code></summary>
 
   #### Description
-  Retrieves information about the album specified by `params.album_id`, or the current track's album if omitted.
+  Retrieves information about the album specified by `params.albumId`, or the current track's album if omitted.
 
   #### Parameters
   - **params**: (*optional*) Request parameters
-    - **album_id**: (*optional*) The ID of the album to retrieve (`string`).
+    - **albumId**: (*optional*) The ID of the album to retrieve (`string`).
 
   #### Returns
   `Promise<AlbumInfo | null>`: A promise that resolves to a [AlbumInfo](./docs/api/interfaces/AlbumInfo.md) object, or `null` if no information is available.
@@ -444,18 +444,18 @@ console.log(`Status: ${status.state}${status.track ? `: ${status.track.title}` :
   <summary><code>getEpisode(params)</code></summary>
 
   #### Description
-  Retrieves episode data specified by `params.episode_id`, or the current episode if omitted.
+  Retrieves episode data specified by `params.episodeId`, or the current episode if omitted.
 
   #### Parameters
   - **params**: (*optional*) Request parameters
-    - **episode_id**: (*optional*) The ID of the episode to retrieve (`string`).
+    - **episodeId**: (*optional*) The ID of the episode to retrieve (`string`).
 
   #### Returns
   `Promise<Episode | null>`: A promise that resolves to an [Episode](./docs/api/interfaces/Episode.md) object, or `null` if no information is available.
 
   #### Example
   ```typescript
-  const episode = await rp.getEpisode({ episode_id: 137 });
+  const episode = await rp.getEpisode({ episodeId: 137 });
   if (episode) {
     console.log('');
     console.log('Episode');

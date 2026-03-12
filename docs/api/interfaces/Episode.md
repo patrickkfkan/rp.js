@@ -6,15 +6,15 @@
 
 # Interface: Episode
 
-Defined in: [src/types/episode.ts:1](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L1)
+Defined in: [src/types/episode.ts:1](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L1)
 
 ## Properties
 
-### bio\_image
+### bioImage
 
-> **bio\_image**: `object`
+> **bioImage**: `object`
 
-Defined in: [src/types/episode.ts:13](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L13)
+Defined in: [src/types/episode.ts:13](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L13)
 
 #### large
 
@@ -38,7 +38,7 @@ Defined in: [src/types/episode.ts:13](https://github.com/patrickkfkan/rp.js/blob
 
 > **credits**: `object`[]
 
-Defined in: [src/types/episode.ts:6](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L6)
+Defined in: [src/types/episode.ts:6](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L6)
 
 #### name
 
@@ -54,15 +54,15 @@ Defined in: [src/types/episode.ts:6](https://github.com/patrickkfkan/rp.js/blob/
 
 > **date**: `string`
 
-Defined in: [src/types/episode.ts:5](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L5)
+Defined in: [src/types/episode.ts:5](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L5)
 
 ***
 
-### episode\_image
+### episodeImage
 
-> **episode\_image**: `object`
+> **episodeImage**: `object`
 
-Defined in: [src/types/episode.ts:19](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L19)
+Defined in: [src/types/episode.ts:19](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L19)
 
 #### large
 
@@ -82,11 +82,11 @@ Defined in: [src/types/episode.ts:19](https://github.com/patrickkfkan/rp.js/blob
 
 ***
 
-### guest\_bio
+### guestBio
 
-> **guest\_bio**: `string` \| `null`
+> **guestBio**: `string` \| `null`
 
-Defined in: [src/types/episode.ts:10](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L10)
+Defined in: [src/types/episode.ts:10](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L10)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [src/types/episode.ts:10](https://github.com/patrickkfkan/rp.js/blob
 
 > **guests**: `object`[]
 
-Defined in: [src/types/episode.ts:25](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L25)
+Defined in: [src/types/episode.ts:25](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L25)
 
 #### name
 
@@ -110,7 +110,7 @@ Defined in: [src/types/episode.ts:25](https://github.com/patrickkfkan/rp.js/blob
 
 > **id**: `string`
 
-Defined in: [src/types/episode.ts:2](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L2)
+Defined in: [src/types/episode.ts:2](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L2)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [src/types/episode.ts:2](https://github.com/patrickkfkan/rp.js/blob/
 
 > **links**: `object`[]
 
-Defined in: [src/types/episode.ts:29](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L29)
+Defined in: [src/types/episode.ts:29](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L29)
 
 #### label
 
@@ -134,7 +134,7 @@ Defined in: [src/types/episode.ts:29](https://github.com/patrickkfkan/rp.js/blob
 
 > **overview**: `string` \| `null`
 
-Defined in: [src/types/episode.ts:11](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L11)
+Defined in: [src/types/episode.ts:11](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L11)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [src/types/episode.ts:11](https://github.com/patrickkfkan/rp.js/blob
 
 > **season**: `number`
 
-Defined in: [src/types/episode.ts:12](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L12)
+Defined in: [src/types/episode.ts:12](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L12)
 
 ***
 
@@ -150,7 +150,7 @@ Defined in: [src/types/episode.ts:12](https://github.com/patrickkfkan/rp.js/blob
 
 > **slug**: `string`
 
-Defined in: [src/types/episode.ts:4](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L4)
+Defined in: [src/types/episode.ts:4](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L4)
 
 ***
 
@@ -158,4 +158,4 @@ Defined in: [src/types/episode.ts:4](https://github.com/patrickkfkan/rp.js/blob/
 
 > **title**: `string`
 
-Defined in: [src/types/episode.ts:3](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/episode.ts#L3)
+Defined in: [src/types/episode.ts:3](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/episode.ts#L3)

@@ -6,15 +6,15 @@
 
 # Interface: ArtistInfo
 
-Defined in: [src/types/rp.ts:48](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L48)
+Defined in: [src/types/rp.ts:48](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L48)
 
 ## Properties
 
-### artist\_id
+### artistId
 
-> **artist\_id**: `string`
+> **artistId**: `string`
 
-Defined in: [src/types/rp.ts:49](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L49)
+Defined in: [src/types/rp.ts:49](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L49)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/types/rp.ts:49](https://github.com/patrickkfkan/rp.js/blob/3f52
 
 > **bio**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:51](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L51)
+Defined in: [src/types/rp.ts:51](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L51)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/types/rp.ts:51](https://github.com/patrickkfkan/rp.js/blob/3f52
 
 > **images**: \{ `all`: `string`[]; `default`: `string`; \} \| `null`
 
-Defined in: [src/types/rp.ts:52](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L52)
+Defined in: [src/types/rp.ts:52](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L52)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [src/types/rp.ts:52](https://github.com/patrickkfkan/rp.js/blob/3f52
 
 > **name**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:50](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L50)
+Defined in: [src/types/rp.ts:50](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L50)

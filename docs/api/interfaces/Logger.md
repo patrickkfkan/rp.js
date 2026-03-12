@@ -6,7 +6,7 @@
 
 # Interface: Logger
 
-Defined in: [src/utils/logging.ts:1](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L1)
+Defined in: [src/utils/logging.ts:1](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/utils/logging.ts#L1)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/utils/logging.ts:1](https://github.com/patrickkfkan/rp.js/blob/
 
 > **debug**: (`msg`) => `void`
 
-Defined in: [src/utils/logging.ts:4](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L4)
+Defined in: [src/utils/logging.ts:4](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/utils/logging.ts#L4)
 
 #### Parameters
 
@@ -32,7 +32,7 @@ Defined in: [src/utils/logging.ts:4](https://github.com/patrickkfkan/rp.js/blob/
 
 > **error**: (`msg`) => `void`
 
-Defined in: [src/utils/logging.ts:5](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L5)
+Defined in: [src/utils/logging.ts:5](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/utils/logging.ts#L5)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [src/utils/logging.ts:5](https://github.com/patrickkfkan/rp.js/blob/
 
 > **info**: (`msg`) => `void`
 
-Defined in: [src/utils/logging.ts:2](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L2)
+Defined in: [src/utils/logging.ts:2](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/utils/logging.ts#L2)
 
 #### Parameters
 
@@ -68,7 +68,7 @@ Defined in: [src/utils/logging.ts:2](https://github.com/patrickkfkan/rp.js/blob/
 
 > **warn**: (`msg`) => `void`
 
-Defined in: [src/utils/logging.ts:3](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/utils/logging.ts#L3)
+Defined in: [src/utils/logging.ts:3](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/utils/logging.ts#L3)
 
 #### Parameters
 

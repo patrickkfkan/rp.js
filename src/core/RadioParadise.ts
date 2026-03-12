@@ -364,7 +364,12 @@ export class RadioParadise extends EventEmitter {
     let episodeId = params?.episodeId;
     if (!episodeId) {
       const { channel, track } = this.getStatus() ?? {};
-      if (!channel || !channel.isEpisodicRadio || !track || track.type !== 'T') {
+      if (
+        !channel ||
+        !channel.isEpisodicRadio ||
+        !track ||
+        track.type !== 'T'
+      ) {
         this.#logger.warn(
           'No episode in progress, and no episodeId was provided'
         );

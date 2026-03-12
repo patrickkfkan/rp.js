@@ -6,23 +6,23 @@
 
 # Interface: AlbumInfo
 
-Defined in: [src/types/rp.ts:58](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L58)
+Defined in: [src/types/rp.ts:58](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L58)
 
 ## Properties
 
-### album\_id
+### albumId
 
-> **album\_id**: `string`
+> **albumId**: `string`
 
-Defined in: [src/types/rp.ts:59](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L59)
+Defined in: [src/types/rp.ts:59](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L59)
 
 ***
 
-### artist\_id
+### artistId
 
-> **artist\_id**: `string` \| `null`
+> **artistId**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:61](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L61)
+Defined in: [src/types/rp.ts:61](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L61)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/types/rp.ts:61](https://github.com/patrickkfkan/rp.js/blob/3f52
 
 > **cover**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:65](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L65)
+Defined in: [src/types/rp.ts:65](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L65)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/types/rp.ts:65](https://github.com/patrickkfkan/rp.js/blob/3f52
 
 > **label**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:64](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L64)
+Defined in: [src/types/rp.ts:64](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L64)
 
 ***
 
@@ -46,15 +46,15 @@ Defined in: [src/types/rp.ts:64](https://github.com/patrickkfkan/rp.js/blob/3f52
 
 > **name**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:60](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L60)
+Defined in: [src/types/rp.ts:60](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L60)
 
 ***
 
-### release\_date
+### releaseDate
 
-> **release\_date**: `string` \| `null`
+> **releaseDate**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:62](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L62)
+Defined in: [src/types/rp.ts:62](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L62)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [src/types/rp.ts:62](https://github.com/patrickkfkan/rp.js/blob/3f52
 
 > **songs**: `object`[]
 
-Defined in: [src/types/rp.ts:66](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L66)
+Defined in: [src/types/rp.ts:66](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L66)
 
 #### album
 
@@ -82,9 +82,9 @@ Duration in milliseconds.
 
 > **id**: `string` \| `null`
 
-#### release\_date
+#### releaseDate
 
-> **release\_date**: `string` \| `null`
+> **releaseDate**: `string` \| `null`
 
 #### title
 
@@ -100,4 +100,4 @@ Duration in milliseconds.
 
 > **year**: `string` \| `null`
 
-Defined in: [src/types/rp.ts:63](https://github.com/patrickkfkan/rp.js/blob/3f521bec0a67a6bb5c8e0fb949916d7b56874b7b/src/types/rp.ts#L63)
+Defined in: [src/types/rp.ts:63](https://github.com/patrickkfkan/rp.js/blob/5533011b62f418584ef85a67f25f2a23cdd40271/src/types/rp.ts#L63)
