@@ -180,7 +180,7 @@ export class RadioParadise extends EventEmitter {
         channelObj = channel;
       }
       if (!channelObj.is_episodic_radio) {
-        throw Error(`Cannot play episode from non-episodic channel "${channel}"`);
+        throw Error(`Cannot play episode from non-episodic channel "${channelObj.title}"`);
       }
     }
     await this.#assertReady().play(channel, episode);
