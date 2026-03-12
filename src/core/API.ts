@@ -66,7 +66,7 @@ export interface ApiGetEpisodeParams {
 }
 
 const API_URL = 'https://api.radioparadise.com/api';
-const VSH_API_URL = 'https://vsh-sdata.radioparadise.com/api'
+const VSH_API_URL = 'https://vsh-sdata.radioparadise.com/api';
 const SITEAPI_URL = 'https://api.radioparadise.com/siteapi.php';
 const AUTH_ENDPOINT = `${API_URL}/auth`;
 const LIST_CHANNELS_ENDPOINT = `${API_URL}/list_chan?source=24`;
@@ -253,7 +253,7 @@ export class API {
     url.searchParams.set('populate', 'deep');
     url.searchParams.set('pagination[start]', String(start));
     url.searchParams.set('pagination[limit]', String(limit));
-    url.searchParams.set('sort[0]', `release_num:${sort}`)
+    url.searchParams.set('sort[0]', `release_num:${sort}`);
     this.#logger.debug(`API: ${url.toString()}`);
     const res = await this.#session.fetch(url);
     return parseEpisodeListResponse(await res.json());

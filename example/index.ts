@@ -118,7 +118,7 @@ async function run() {
       }
       await rp.play(channel, episode.id);
     })();
-  })
+  });
 
   rp.on('status', (status) => {
     logger.debug(
@@ -209,8 +209,7 @@ async function run() {
           logger.info('About episode');
           logger.info('-------------');
           logger.info(JSON.stringify(episode, null, 2));
-        }
-        else {
+        } else {
           logger.info('No episode info available');
         }
         return;

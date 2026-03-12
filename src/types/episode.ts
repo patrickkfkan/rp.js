@@ -21,7 +21,7 @@ export interface Episode {
     small: string | null;
     medium: string | null;
     thumbnail: string | null;
-  }
+  };
   guests: {
     name: string;
     occupation: string | null;

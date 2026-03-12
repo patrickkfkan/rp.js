@@ -27,7 +27,7 @@ function createPlayResponseSchema(data: any) {
       slice_num: z.coerce.string(),
       type: z.string(),
       expiration: z.coerce.number(), // This is date/time given in seconds
-      length: z.coerce.number(),   // This is given in seconds
+      length: z.coerce.number(), // This is given in seconds
       url: z.url(),
       channel: z.object({
         chan: z.string(),

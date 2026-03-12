@@ -68,19 +68,19 @@ export interface GetAlbumInfoParams {
 export interface GetEpisodeListParams {
   /**
    * Offset of the first item in the list to return.
-   * 
+   *
    * @default 0
    */
   start?: number;
   /**
    * Number of items to return.
-   * 
+   *
    * @default 10
    */
   limit?: number;
   /**
    * Sort order of the items.
-   * 
+   *
    * @default DESC
    */
   sort?: 'ASC' | 'DESC';
@@ -155,32 +155,35 @@ export class RadioParadise extends EventEmitter {
 
   /**
    * Plays content from the specified channel or episode.
-   * 
+   *
    * @param {string|Object} channel - The channel ID (string) or channel object.
    * @param {string|Object} [episode] - Optional. The episode ID (string) or episode object.
-   * 
+   *
    * @description
    * - If `episode` is provided, plays that specific episode from the channel.
    * - If `episode` is omitted, plays the live stream or default content of the channel.
-   * 
-   * @throws {Error} If an episode is provided but the channel does not support episodic content 
+   *
+   * @throws {Error} If an episode is provided but the channel does not support episodic content
    * (i.e., `channel.is_episodic_radio` is false).
    */
   async play(channel: string | Channel, episode?: string | Episode) {
     if (episode) {
       let channelObj: Channel;
       if (typeof channel === 'string') {
-        const chan = (await this.getChannels()).find((chan) => chan.id === channel);
+        const chan = (await this.getChannels()).find(
+          (chan) => chan.id === channel
+        );
         if (!chan) {
           throw Error(`Channel "${channel}" not found`);
         }
         channelObj = chan;
-      }
-      else {
+      } else {
         channelObj = channel;
       }
       if (!channelObj.is_episodic_radio) {
-        throw Error(`Cannot play episode from non-episodic channel "${channelObj.title}"`);
+        throw Error(
+          `Cannot play episode from non-episodic channel "${channelObj.title}"`
+        );
       }
     }
     await this.#assertReady().play(channel, episode);
@@ -347,7 +350,9 @@ export class RadioParadise extends EventEmitter {
     if (!episode_id) {
       const { channel, track } = this.getStatus() ?? {};
       if (!channel || !channel.isEpisodeRadio || !track || track.type !== 'T') {
-        this.#logger.warn('No episode in progress, and no episode_id was provided');
+        this.#logger.warn(
+          'No episode in progress, and no episode_id was provided'
+        );
         return null;
       }
       episode_id = track.episode_id;

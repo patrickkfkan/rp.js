@@ -1,5 +1,10 @@
 import EventEmitter from 'events';
-import { type BlockTrack, type Block, type Channel, type Episode } from '../types';
+import {
+  type BlockTrack,
+  type Block,
+  type Channel,
+  type Episode
+} from '../types';
 import { type PlayerTrackInfo, type Player, type PlayerStatus } from './Player';
 import { type API } from './API';
 import {
@@ -120,8 +125,11 @@ export class PlayerWrapper extends EventEmitter {
     try {
       await this.#api.auth();
       const channel_id = typeof channel === 'string' ? channel : channel.id;
-      const episode_id = episode ?
-        (typeof episode === 'string' ? episode : episode.id)
+      const episode_id =
+        episode ?
+          typeof episode === 'string' ?
+            episode
+          : episode.id
         : undefined;
       const block = await this.#api.play({
         event: '0',
@@ -306,7 +314,9 @@ export class PlayerWrapper extends EventEmitter {
       );
       return;
     }
-    this.#setStatus({ track: this.#toPlayerTrackInfo(currentTrack, this.#currentBlock) });
+    this.#setStatus({
+      track: this.#toPlayerTrackInfo(currentTrack, this.#currentBlock)
+    });
     if (currentTrack.duration) {
       const isLastTrackInBlock =
         this.#currentTrackIndex === this.#currentBlock.tracks.length - 1;
@@ -578,7 +588,8 @@ export class PlayerWrapper extends EventEmitter {
     const isEpisode = this.#currentBlock.type === 'T';
     // Because we externally represent an episode as a single track, `positionInTrack` would
     // accordingly be the actual position in the stream to seek to.
-    const positionInStream = positionInTrack + (isEpisode ? 0 : (currentTrack.elapsed ?? 0));
+    const positionInStream =
+      positionInTrack + (isEpisode ? 0 : (currentTrack.elapsed ?? 0));
     try {
       const [_, { position: newPositionInStream }] = await Promise.all([
         this.#player.seek(positionInStream),
@@ -589,22 +600,28 @@ export class PlayerWrapper extends EventEmitter {
         // currentTrack could have changed after seek and we would need to update that.
         // Note that we use `positionInStream` which is the target seek position to determine
         // the updated track index.
-        const newTrackIndex = this.#currentBlock.tracks.findIndex((track) => 
-          track.elapsed &&
-          positionInStream >= track.elapsed &&
-          track.duration &&
-          positionInStream < track.elapsed + track.duration
+        const newTrackIndex = this.#currentBlock.tracks.findIndex(
+          (track) =>
+            track.elapsed &&
+            positionInStream >= track.elapsed &&
+            track.duration &&
+            positionInStream < track.elapsed + track.duration
         );
         if (newTrackIndex < 0) {
-          this.#logger.warn('Could not determine current track after seeking in episode. The data used is:');
+          this.#logger.warn(
+            'Could not determine current track after seeking in episode. The data used is:'
+          );
           this.#currentBlock.tracks.forEach((track) => {
-            this.#logger.debug(`positionInStream: ${positionInStream}, track.elapsed: ${track.elapsed}, track.duration: ${track.duration}}`);
-          })
-        }
-        else {
+            this.#logger.debug(
+              `positionInStream: ${positionInStream}, track.elapsed: ${track.elapsed}, track.duration: ${track.duration}}`
+            );
+          });
+        } else {
           this.#currentTrackIndex = newTrackIndex;
           currentTrack = this.#currentBlock.tracks.at(newTrackIndex)!;
-          this.#logger.warn(`Current track after seeking to ${millisToMinutesAndSeconds(positionInStream)} in episode is "${currentTrack.title}"`);
+          this.#logger.warn(
+            `Current track after seeking to ${millisToMinutesAndSeconds(positionInStream)} in episode is "${currentTrack.title}"`
+          );
         }
       }
       // Recalculate next song interval
@@ -712,7 +729,8 @@ export class PlayerWrapper extends EventEmitter {
     if (
       // If duration is also null or 0, then it's an infinite stream and should not fail validation.
       block.tracks.some(
-        (track) => track.duration && (track.elapsed === undefined || track.elapsed < 0)
+        (track) =>
+          track.duration && (track.elapsed === undefined || track.elapsed < 0)
       )
     ) {
       return {

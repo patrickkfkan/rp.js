@@ -64,7 +64,7 @@ export interface Block {
   slice_num: string;
   /**
    * Block type.
-   * 
+   *
    * Known types and inferred meaning:
    * - 'M': Music
    * - 'T': Talk
