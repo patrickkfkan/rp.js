@@ -7,3 +7,4 @@ export {
 export { Logger } from './utils/logging';
 export * from './types/rp';
 export { Channel, Track, BlockTrack } from './types/media';
+export { Episode } from './types/episode';

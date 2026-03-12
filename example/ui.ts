@@ -2,6 +2,7 @@ import blessed from 'blessed';
 import { createChannelList } from './ChannelList.js';
 import { createAudioQualityList } from './AudioQualityList.js';
 import { millisToLocaleDateTimeString } from '../dist/index.js';
+import { createEpisodeList } from './EpisodeList.js';
 
 const screen = blessed.screen({
   smartCSR: true,
@@ -13,7 +14,7 @@ const logBox = blessed.log({
   top: 0,
   left: 0,
   width: '100%',
-  height: '100%-2',
+  height: '100%-3',
   scrollable: true,
   alwaysScroll: true,
   keys: true,
@@ -26,21 +27,29 @@ const logBox = blessed.log({
 });
 
 const statusBar = blessed.box({
-  bottom: 1,
+  bottom: 2,
   left: 0,
   width: '100%',
   height: 1,
   content: '',
-  style: { bg: 'blue', fg: 'white' }
+  style: { bg: 'magenta', fg: 'white' }
 });
 
 const helpBar = blessed.box({
   bottom: 0,
   left: 0,
   width: '100%',
-  height: 1,
-  content:
-    '[p] Toggle pause  [>] Skip  [c] Channel  [f] Quality  [n] Now playing  [i] Info  [q] Quit',
+  height: 2,
+  content: [
+    '[p] Toggle pause',
+    '[>] Skip',
+    '[c] Channels',
+    '[e] Episodes',
+    '[f] Quality',
+    '[n] Now playing',
+    '[i] Info',
+    '[q] Quit'
+  ].join('  '),
   style: { bg: 'blue', fg: 'white' }
 });
 
@@ -50,6 +59,7 @@ screen.append(helpBar);
 
 const channelList = createChannelList(screen);
 const audioQualityList = createAudioQualityList(screen);
+const episodeList = createEpisodeList(screen);
 
 export const ui = {
   log(level: 'info' | 'warn' | 'debug' | 'error', msg: string) {
@@ -75,5 +85,6 @@ export const ui = {
   },
 
   channelList,
-  audioQualityList: audioQualityList
+  audioQualityList: audioQualityList,
+  episodeList
 };

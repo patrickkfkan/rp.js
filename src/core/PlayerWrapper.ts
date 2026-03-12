@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import { type BlockTrack, type Block, type Channel } from '../types';
+import { type BlockTrack, type Block, type Channel, type Episode } from '../types';
 import { type PlayerTrackInfo, type Player, type PlayerStatus } from './Player';
 import { type API } from './API';
 import {
@@ -111,7 +111,7 @@ export class PlayerWrapper extends EventEmitter {
     }
   }
 
-  async play(channel: string | Channel) {
+  async play(channel: string | Channel, episode?: string | Episode) {
     this.#cancelCurrentPlayerOp();
     this.#clearNextTrackTimer();
     this.#playerOpAbortController = new AbortController();
@@ -120,6 +120,9 @@ export class PlayerWrapper extends EventEmitter {
     try {
       await this.#api.auth();
       const channel_id = typeof channel === 'string' ? channel : channel.id;
+      const episode_id = episode ?
+        (typeof episode === 'string' ? episode : episode.id)
+        : undefined;
       const block = await this.#api.play({
         event: '0',
         elapsed: '0',
@@ -127,6 +130,7 @@ export class PlayerWrapper extends EventEmitter {
         action: 'start',
         info: true,
         channel_id,
+        episode_id,
         audio_type: ''
       });
       if (signal.aborted) {
@@ -627,6 +631,7 @@ export class PlayerWrapper extends EventEmitter {
         'title',
         'artist',
         'album',
+        'episode_id',
         'year',
         'duration',
         'slideshow',

@@ -109,6 +109,17 @@ async function run() {
     })();
   });
 
+  ui.episodeList.on('select', (episode) => {
+    void (async () => {
+      const channel = channels.find((chan) => chan.is_episodic_radio);
+      if (!channel) {
+        logger.error('No episodic radio found');
+        return;
+      }
+      await rp.play(channel, episode.id);
+    })();
+  })
+
   rp.on('status', (status) => {
     logger.debug(
       `Captured "status" event - ${status.state}${status.track ? `: ${status.track.title}` : ''}`
@@ -186,36 +197,67 @@ async function run() {
 
   ui.key('i', () => {
     void (async () => {
-      logger.info('Fetching song info...');
-      const songInfo = await rp.getSongInfo();
-      if (songInfo) {
-        logger.info('');
-        logger.info('Song info');
-        logger.info('---------');
-        logger.info(JSON.stringify(songInfo, null, 2));
-      } else {
-        logger.info('No song info available in the current context');
+      const track = rp.getStatus().track;
+      if (!track) {
+        logger.info('No info available - playback not in progress');
+        return;
       }
-      logger.info('Fetching artist info...');
-      const artistInfo = await rp.getArtistInfo();
-      if (artistInfo) {
-        logger.info('');
-        logger.info('Artist info');
-        logger.info('-----------');
-        logger.info(JSON.stringify(artistInfo, null, 2));
-      } else {
-        logger.info('No artist info available in the current context');
+      if (track.type === 'T') {
+        logger.info('Fetching episode info...');
+        const episode = await rp.getEpisode();
+        if (episode) {
+          logger.info('About episode');
+          logger.info('-------------');
+          logger.info(JSON.stringify(episode, null, 2));
+        }
+        else {
+          logger.info('No episode info available');
+        }
+        return;
       }
-      logger.info('Fetching album info...');
-      const albumInfo = await rp.getAlbumInfo();
-      if (albumInfo) {
-        logger.info('');
-        logger.info('Album info');
-        logger.info('---------');
-        logger.info(JSON.stringify(albumInfo, null, 2));
-      } else {
-        logger.info('No album info available in the current context');
+      if (track.type === 'M') {
+        logger.info('Fetching song info...');
+        const songInfo = await rp.getSongInfo();
+        if (songInfo) {
+          logger.info('');
+          logger.info('Song info');
+          logger.info('---------');
+          logger.info(JSON.stringify(songInfo, null, 2));
+        } else {
+          logger.info('No song info available');
+        }
+        logger.info('Fetching artist info...');
+        const artistInfo = await rp.getArtistInfo();
+        if (artistInfo) {
+          logger.info('');
+          logger.info('Artist info');
+          logger.info('-----------');
+          logger.info(JSON.stringify(artistInfo, null, 2));
+        } else {
+          logger.info('No artist info available');
+        }
+        logger.info('Fetching album info...');
+        const albumInfo = await rp.getAlbumInfo();
+        if (albumInfo) {
+          logger.info('');
+          logger.info('Album info');
+          logger.info('---------');
+          logger.info(JSON.stringify(albumInfo, null, 2));
+        } else {
+          logger.info('No album info available');
+        }
+        return;
       }
+      logger.info('No info available for this track');
+    })();
+  });
+
+  ui.key('e', () => {
+    void (async () => {
+      logger.info('Fetching episodes...');
+      const { episodes } = await rp.getEpisodeList({ limit: 30 });
+      ui.episodeList.setEpisodes(episodes);
+      ui.episodeList.show();
     })();
   });
 

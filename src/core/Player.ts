@@ -7,6 +7,7 @@ export type PlayerTrackInfo = Pick<
   | 'title'
   | 'artist'
   | 'album'
+  | 'episode_id'
   | 'year'
   | 'duration'
   | 'slideshow'

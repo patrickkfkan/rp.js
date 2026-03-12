@@ -4,6 +4,7 @@ export interface Channel {
   stream_name: string;
   slug: string;
   type: string;
+  is_episodic_radio: boolean;
   images: {
     default: string;
     banner: string;

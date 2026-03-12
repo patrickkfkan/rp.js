@@ -6,6 +6,7 @@ import {
   parseNowPlayingListResponse,
   parsePlayResponse
 } from '../parsers';
+import { parseEpisodeListResponse } from '../parsers/episode';
 import { type Block, type BlockTrack, type NowPlayingList } from '../types';
 import { type Logger, NULL_LOGGER } from '../utils/logging';
 import { getErrorMessage, maskPlayerIdFromUrl } from '../utils/string-util';
@@ -54,7 +55,18 @@ export interface ApiGetAlbumInfoParams {
   album_id: string;
 }
 
+export interface ApiGetEpisodeListParams {
+  start: number;
+  limit: number;
+  sort: 'ASC' | 'DESC';
+}
+
+export interface ApiGetEpisodeParams {
+  episode_id: string;
+}
+
 const API_URL = 'https://api.radioparadise.com/api';
+const VSH_API_URL = 'https://vsh-sdata.radioparadise.com/api'
 const SITEAPI_URL = 'https://api.radioparadise.com/siteapi.php';
 const AUTH_ENDPOINT = `${API_URL}/auth`;
 const LIST_CHANNELS_ENDPOINT = `${API_URL}/list_chan?source=24`;
@@ -66,6 +78,7 @@ const NOW_PLAYING_LIST_MORE_ENDPOINT = `${API_URL}/nowplaying_list_more_v2022`;
 const SONG_INFO_ENDPOINT = `${SITEAPI_URL}?file=music%3A%3Asong&withWiki=true`;
 const ARTIST_INFO_ENDPOINT = `${SITEAPI_URL}?file=music%3A%3Aartist-detail-v2022`;
 const ALBUM_INFO_ENDPOINT = `${SITEAPI_URL}?file=music%3A%3Aalbum-v2022`;
+const EPISODE_LIST_ENDPOINT = `${VSH_API_URL}/episodes`;
 
 export class API {
   #session: Session;
@@ -231,5 +244,31 @@ export class API {
     this.#logger.debug(`API: ${url.toString()}`);
     const res = await this.#session.fetch(url);
     return parseAlbumInfoResponse(await res.json());
+  }
+
+  async getEpisodeList(params: ApiGetEpisodeListParams) {
+    const { start, limit, sort } = params;
+    const url = new URL(EPISODE_LIST_ENDPOINT);
+    url.searchParams.set('publicationState', 'live');
+    url.searchParams.set('populate', 'deep');
+    url.searchParams.set('pagination[start]', String(start));
+    url.searchParams.set('pagination[limit]', String(limit));
+    url.searchParams.set('sort[0]', `release_num:${sort}`)
+    this.#logger.debug(`API: ${url.toString()}`);
+    const res = await this.#session.fetch(url);
+    return parseEpisodeListResponse(await res.json());
+  }
+
+  async getEpisode(params: ApiGetEpisodeParams) {
+    const { episode_id } = params;
+    const url = new URL(EPISODE_LIST_ENDPOINT);
+    url.searchParams.set('publicationState', 'live');
+    url.searchParams.set('populate', 'deep');
+    url.searchParams.set('filters[$or][0][episode_id][$eq]', episode_id);
+    url.searchParams.set('pagination[start]', '0');
+    url.searchParams.set('pagination[limit]', '1');
+    this.#logger.debug(`API: ${url.toString()}`);
+    const res = await this.#session.fetch(url);
+    return parseEpisodeListResponse(await res.json()).episodes.at(0) ?? null;
   }
 }

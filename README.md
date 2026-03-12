@@ -130,13 +130,19 @@ await rp.play('0');
 </details>
 
 <details>
-  <summary><code>play(channel)</code></summary>
+  <summary><code>play(channel, [episode])</code></summary>
 
   #### Description
-  Plays the specified channel.
+  Plays content from the specified channel or episode.
+  - If `episode` is provided, plays that specific episode from the channel.
+  - If `episode` is omitted, plays the live stream or default content of the channel.
 
+  >[!NOTE]
+  >Episodes can only be played on channels that support episodic content. Doing otherwise will result in an error. Inspect the channel's `is_episodic_radio` property to check support.
+  
   #### Parameters
-  - **channel**: The ID of the channel (`string`) or a [Channel](./docs/api/interfaces/Channel.md) object.
+  - **channel**: The channel ID (`string`) or [Channel](./docs/api/interfaces/Channel.md) object.
+  - **episode**: Optional. The episode ID (`string`) or [Episode](./docs/api/interfaces/Episode.md) object.
 
   #### Returns
   `Promise<void>`: A promise that resolves when playback has started.

@@ -12,7 +12,10 @@ const ListChannelsResponseSchema = z.array(
     banner_url: z.url(),
     banner_mini_url: z.url(),
     carousel_url: z.url(),
-    image: z.url()
+    image: z.url(),
+    modes: z.object({
+      type: z.string()
+    })
   })
 );
 
@@ -26,7 +29,8 @@ export function parseListChannelsResponse(data: any) {
         banner: data.banner_url,
         banner_mini: data.banner_mini_url,
         carousel: data.carousel_url
-      }
+      },
+      is_episodic_radio: data.modes.type === 'episodic_radio'
     }))
   ).parse(data);
 }
