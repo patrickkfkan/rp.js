@@ -481,6 +481,14 @@ Notes:
 
 ## Changelog
 
+2.0.0
+- Add support for fetching and playing episodes.
+- Fix block validation not detecting track anomalies.
+- Fix last track in block not advancing to the next block if remaining playback time is too short.
+
+**Breaking change**
+- Object schema changes: notably all properties are now in camelCase.
+
 1.0.0
 - Initial release
 
