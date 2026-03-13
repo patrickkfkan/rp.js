@@ -323,8 +323,10 @@ export class PlayerWrapper extends EventEmitter {
       // If current track is the last in block, we would have to wait for player "stop" event before
       // advancing to the next block.  In this case, the #nextTrackTimer is set to expire slightly earlier
       // to ensure it triggers before the player stops, preventing a race condition where the 'stop' event is missed.
-      const nextTrackInterval =
-        currentTrack.duration - startPosition - (isLastTrackInBlock ? 2 : 0);
+      const nextTrackInterval = Math.max(
+        0,
+        currentTrack.duration - startPosition - (isLastTrackInBlock ? 2 : 0)
+      );
       if (!isAdjusting) {
         if (!isLastTrackInBlock) {
           this.#logger.debug(
@@ -370,7 +372,13 @@ export class PlayerWrapper extends EventEmitter {
         this.#nextTrackTimer.pause();
       }
       if (!isAdjusting) {
-        this.#initAdjustTimer();
+        const maxIt = Math.max(
+          0,
+          Math.min(5, Math.floor(nextTrackInterval / 2000 - 1))
+        );
+        if (maxIt > 0) {
+          this.#initAdjustTimer(maxIt);
+        }
         if (currentTrack.type === 'P') {
           await this.#api.auth();
         }
@@ -389,7 +397,7 @@ export class PlayerWrapper extends EventEmitter {
     }
   }
 
-  #initAdjustTimer(maxIt = 5, it = 0) {
+  #initAdjustTimer(maxIt: number, it = 0) {
     if (!this.#player.getPosition) {
       return;
     }
