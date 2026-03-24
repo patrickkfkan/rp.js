@@ -652,6 +652,7 @@ export class PlayerWrapper extends EventEmitter {
       return;
     }
     this.#cancelCurrentPlayerOp();
+    this.#clearNextTrackTimer();
     this.#playerOpAbortController = new AbortController();
     const signal = this.#playerOpAbortController.signal;
     try {
@@ -767,6 +768,7 @@ export class PlayerWrapper extends EventEmitter {
 
   async dispose() {
     this.#cancelCurrentPlayerOp();
+    this.#clearNextTrackTimer();
     await this.#player.stop();
     this.#player.off('stop', this.#stopListener);
   }
