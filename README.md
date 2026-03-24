@@ -481,6 +481,9 @@ Notes:
 
 ## Changelog
 
+2.0.1
+- Fix stop / dispose doesn't clear next track timer.
+
 2.0.0
 - Add support for fetching and playing episodes.
 - Fix block validation not detecting track anomalies.
